@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="568.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="47.0" layoutY="25.0" text="Actualizar aula" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="56.0" layoutY="352.0" prefHeight="178.0" prefWidth="503.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="67.0">
+         <children>
+            <Label layoutX="22.5" layoutY="-10.5" style="-fx-background-color: #ffffff;" text=" Datos del aula " AnchorPane.leftAnchor="22.5" AnchorPane.topAnchor="-10.5" />
+            <Label layoutX="26.0" layoutY="24.0" text="Clave:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="60.5" text="Nombre:" AnchorPane.topAnchor="54.5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="91.0" text="Tipo:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="126.0" text="Capacidad:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="claveTxtF" layoutX="135.0" layoutY="19.0" prefHeight="28.0" prefWidth="335.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="nombreTxtF" layoutX="135.0" layoutY="52.0" prefHeight="28.0" prefWidth="335.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="tipoCBox" layoutX="135.0" layoutY="87.0" prefHeight="26.0" prefWidth="186.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="capacidadTxtF" layoutX="135.0" layoutY="121.0" prefHeight="28.0" prefWidth="335.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="255.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <JFXButton fx:id="registrarBtn" buttonType="RAISED" layoutX="438.0" layoutY="255.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" />
+   </children>
+</AnchorPane>

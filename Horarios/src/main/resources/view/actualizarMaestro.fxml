@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="48.0" layoutY="80.0" prefHeight="240.0" prefWidth="504.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="48.0">
+         <children>
+            <Label style="-fx-background-color: #ffffff;" text=" Datos del profesor " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-14.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="57.5" layoutY="32.0" prefHeight="162.0" prefWidth="133.0" AnchorPane.bottomAnchor="22.5" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="18.0">
+               <children>
+                  <VBox layoutY="21.0" prefHeight="197.0" prefWidth="133.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Nombre completo:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="Teléfono:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="Nivel academico:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="Carrera:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="Contrato:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="IMR:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <JFXTextField fx:id="nombreTxt" layoutX="177.5" layoutY="23.5" prefHeight="25.0" prefWidth="279.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="18.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telefonoTxt" layoutX="177.5" layoutY="57.5" prefHeight="25.0" prefWidth="96.0" promptText="8341234567" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="52.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="nivelCBox" layoutX="182.5" layoutY="97.5" prefWidth="127.0" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="85.0" />
+            <JFXComboBox fx:id="carreraCBox" layoutX="177.5" layoutY="127.5" prefHeight="26.0" prefWidth="264.0" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="125.0" />
+            <JFXComboBox fx:id="contratoCBox" layoutX="177.5" layoutY="165.5" prefHeight="26.0" prefWidth="73.0" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="163.0" />
+            <JFXTextField fx:id="imrTxt" layoutX="177.5" layoutY="201.5" prefHeight="25.0" prefWidth="90.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="196.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="462.0" layoutY="470.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" />
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="47.0" layoutY="470.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <Label layoutX="47.0" layoutY="23.0" text="Actualizar información de maestro">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="48.0" layoutY="352.0" prefHeight="85.0" prefWidth="504.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="48.0">
+         <children>
+            <Label style="-fx-background-color: #ffffff;" text=" Datos de acceso " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-14.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="57.5" layoutY="32.0" prefHeight="162.0" prefWidth="133.0" AnchorPane.bottomAnchor="22.5" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="18.0">
+               <children>
+                  <VBox layoutY="21.0" prefHeight="52.0" prefWidth="133.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Usuario:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                        <Label text="Contraseña:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <JFXTextField fx:id="usuarioTxt" layoutX="177.5" layoutY="23.5" prefHeight="25.0" prefWidth="279.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="18.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="contrasenaTxt" layoutX="177.5" layoutY="60.5" prefHeight="25.0" prefWidth="279.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="51.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

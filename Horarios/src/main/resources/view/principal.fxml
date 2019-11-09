@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.PrincipalController">
+   <children>
+      <BorderPane layoutX="-10.0" layoutY="76.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="1080.0" prefWidth="244.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="184.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="36.126220703125" AnchorPane.topAnchor="14.0">
+                     <image>
+                        <Image url="@../images/UP_Victoria.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="93.0" layoutY="102.0" text="Menú" textFill="#4169aa">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="disponibilidadBtn" buttonType="RAISED" layoutX="27.0" layoutY="127.0" prefHeight="35.0" prefWidth="194.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Disponibilidad" wrapText="true" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="materiasBtn" buttonType="RAISED" layoutX="27.0" layoutY="167.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Materias" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="maestrosBtn" buttonType="RAISED" layoutX="27.0" layoutY="207.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Maestros" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="carrerasBtn" buttonType="RAISED" layoutX="27.0" layoutY="247.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Carreras" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="planesBtn" buttonType="RAISED" layoutX="27.0" layoutY="287.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Planes de estudio" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="aulasBtn" buttonType="RAISED" layoutX="27.0" layoutY="327.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Aulas" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="gruposBtn" buttonType="RAISED" layoutX="27.0" layoutY="367.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Grupos" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="horariosBtn" buttonType="RAISED" layoutX="27.0" layoutY="407.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Horarios" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="chatBtn" buttonType="RAISED" layoutX="27.0" layoutY="447.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Puntos de confianza" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="chatBtn1" buttonType="RAISED" layoutX="27.0" layoutY="487.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Chat" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="chatBtn11" buttonType="RAISED" layoutX="27.0" layoutY="527.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Ingles" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="607.0" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Cerrar sesión" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                  <Pane layoutX="-75.0" layoutY="-25.0" prefHeight="200.0" prefWidth="2.0" style="-fx-background-color: #4169aa;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </left>
+         <bottom>
+            <AnchorPane prefHeight="11.0" prefWidth="1280.0" style="-fx-background-color: #4169aa;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="24.0" layoutY="4.0" text="Label" textFill="WHITE" AnchorPane.leftAnchor="24.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <AnchorPane fx:id="panelSecundario" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

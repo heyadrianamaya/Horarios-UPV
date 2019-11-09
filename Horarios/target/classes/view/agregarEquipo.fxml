@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="506.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="47.0" layoutY="23.0" text="Agregar equipo">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="40.0" layoutY="68.0" prefHeight="150.0" prefWidth="426.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Datos del equipo " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
+            <Label layoutX="23.0" layoutY="26.0" text="Nombre:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="15.0" />
+            <Label layoutX="26.0" layoutY="42.0" text="Descripción:" AnchorPane.topAnchor="48.0" />
+            <Label layoutX="26.0" layoutY="79.0" text="Categoría:" AnchorPane.topAnchor="98.0" />
+            <JFXTextField fx:id="nombreTxtF" layoutX="126.0" layoutY="14.0" prefHeight="26.0" prefWidth="281.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextArea fx:id="descripcionTxtA" layoutX="126.0" layoutY="44.0" prefHeight="48.0" prefWidth="281.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextArea>
+            <JFXComboBox fx:id="categoriaCBox" layoutX="126.0" layoutY="96.0" prefWidth="154.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="231.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="376.0" layoutY="231.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
+   </children>
+</AnchorPane>

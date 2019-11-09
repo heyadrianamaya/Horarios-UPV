@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="465.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="57.0" layoutY="33.0" text="Actualizar datos" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="70.0" text="Seleccione las carrearas a compartir" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="40.0" layoutY="109.0" prefHeight="200.0" prefWidth="457.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+         <children>
+            <Label layoutX="56.0" layoutY="17.0" style="-fx-background-color: #ffffff;" text=" Carreras " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-14.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXCheckBox fx:id="mecaCBtn" checkedColor="#5550dd" layoutX="23.0" layoutY="22.0" text="Ingeniera en Mecatronica" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="22.0" />
+            <JFXCheckBox fx:id="itiCBtn" checkedColor="#5550dd" layoutX="23.0" layoutY="49.0" text="Ingenieria en Tecnologías de la Información" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0" />
+            <JFXCheckBox fx:id="manuCBtn" checkedColor="#5550dd" layoutX="23.0" layoutY="82.0" text="Ingenieria en Manufactura" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+            <JFXCheckBox fx:id="pymesCBtn" checkedColor="#5550dd" layoutX="20.0" layoutY="111.0" text="PyMES" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="110.0" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="compartirBtn" buttonType="RAISED" layoutX="335.0" layoutY="326.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Compartir" />
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="326.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="37.0" layoutY="36.0" text="Disponibilidad de profesores">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="106.0" text="Profesores:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="198.0" text="Turno:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="profesoresCBox" focusColor="#bdcdff" layoutX="37.0" layoutY="126.0" prefHeight="26.0" prefWidth="193.0" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="126.0" />
+      <JFXComboBox layoutX="37.0" layoutY="218.0" prefHeight="26.0" prefWidth="193.0" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="218.0" />
+      <AnchorPane layoutX="34.0" layoutY="315.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="108.0">
+         <children>
+            <Label layoutX="68.0" layoutY="32.0" style="-fx-background-color: #ffffff;" text=" Horas disponibles " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="-14.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

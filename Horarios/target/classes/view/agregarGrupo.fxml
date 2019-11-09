@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="532.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="47.0" layoutY="23.0" text="Agregar grupo">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="40.0" layoutY="68.0" prefHeight="123.0" prefWidth="452.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Datos del grupo " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
+            <Label layoutX="23.0" layoutY="26.0" text="Clave:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="15.0" />
+            <Label layoutX="22.0" layoutY="48.0" text="Cuatrimestre:" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="48.0" />
+            <Label layoutX="26.0" layoutY="80.0" text="Plan de estudio:" />
+            <JFXTextField fx:id="claveTxtF" layoutX="137.0" layoutY="13.0" prefHeight="25.0" prefWidth="281.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="cuatrimestreCBox" layoutX="137.0" layoutY="42.0" prefHeight="28.0" prefWidth="99.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="planCBox" layoutX="137.0" layoutY="74.0" prefHeight="28.0" prefWidth="214.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="203.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="402.0" layoutY="203.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
+   </children>
+</AnchorPane>

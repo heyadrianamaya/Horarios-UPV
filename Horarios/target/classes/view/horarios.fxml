@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="37.0" layoutY="36.0" text="Asignacion de horas a profesores" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="62.0" text="Grupos" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="40.0" layoutY="130.0" prefHeight="134.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="572.0" AnchorPane.topAnchor="130.0">
+         <children>
+            <Label layoutX="10.0" layoutY="0.5" style="-fx-background-color: #ffffff;" text=" Materia " AnchorPane.topAnchor="-12.0" />
+            <Label layoutX="10.0" layoutY="14.0" text="Nombre:">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <JFXComboBox fx:id="materiaCBox" layoutX="10.0" layoutY="30.0" prefHeight="28.0" prefWidth="185.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+            <Label layoutX="11.0" layoutY="71.0" text="Horas máximas:">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Label fx:id="hrMaxLbl1" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Label layoutX="11.0" layoutY="97.0" text="Horas disponibles:">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Label fx:id="hrDispLbl1" layoutX="146.0" layoutY="97.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="84.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+      <Label layoutX="40.0" layoutY="274.0" text="Turno">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="turnoCBox" layoutX="40.0" layoutY="296.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+      <AnchorPane layoutX="40.0" layoutY="338.0" prefHeight="186.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
+         <children>
+            <Label layoutX="10.0" layoutY="0.5" style="-fx-background-color: #ffffff;" text=" Profesor " AnchorPane.topAnchor="-12.0" />
+            <Label layoutX="10.0" layoutY="14.0" text="Profesor:">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="profesorCBox" layoutX="10.0" layoutY="30.0" prefHeight="28.0" prefWidth="185.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+            <Label layoutX="11.0" layoutY="71.0" text="Horas máximas:">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="hrMaxLbl2" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="96.0" text="Horas disponibles:">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="hrDispLbl2" layoutX="146.0" layoutY="96.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="121.0" text="Probabilidad de reporbación:">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="reprobacionLbl" layoutX="10.0" layoutY="137.0" text="20 %">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="257.0" layoutY="84.0" prefHeight="440.0" prefWidth="519.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.rightAnchor="40.0">
+         <children>
+            <Label layoutX="18.0" layoutY="-8.0" style="-fx-background-color: #ffffff;" text=" Horarios disponibles " />
+            <TableView layoutX="14.0" layoutY="14.0" prefHeight="324.0" prefWidth="493.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

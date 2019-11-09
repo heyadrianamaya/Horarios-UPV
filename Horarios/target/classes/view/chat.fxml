@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="40.0" layoutY="47.0" text="Chat" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="69.0" text="Lista de profesores" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXListView fx:id="planesList" layoutX="40.0" layoutY="92.0" prefHeight="459.0" prefWidth="203.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="92.0" />
+      <AnchorPane layoutX="261.0" layoutY="90.0" prefHeight="459.0" prefWidth="516.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="261.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Mensajes " AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="-12.0" />
+            <Label layoutX="26.0" layoutY="14.0" text="Persona" />
+            <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="404.0" layoutY="405.0" prefHeight="37.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Enviar" />
+            <JFXTextArea focusColor="BLACK" layoutX="23.0" layoutY="405.0" prefHeight="0.0" prefWidth="361.0" promptText="Escribe tu mensaje..." style="-fx-border-color: #000000; -fx-border-width: 1.5;" unFocusColor="#f8f8f8" />
+            <JFXTextArea editable="false" layoutX="23.0" layoutY="36.0" prefHeight="345.0" prefWidth="471.0" style="-fx-border-color: #000000; -fx-border-width: 1.5;" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
