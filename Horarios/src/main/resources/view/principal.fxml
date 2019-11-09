@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.PrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.PrincipalController">
    <children>
       <BorderPane layoutX="-10.0" layoutY="76.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane prefHeight="1080.0" prefWidth="244.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="629.0" prefWidth="244.0" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="88.0" fitWidth="184.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="36.126220703125" AnchorPane.topAnchor="14.0">
                      <image>
@@ -61,16 +61,16 @@
                      <font>
                         <Font size="12.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="chatBtn1" buttonType="RAISED" layoutX="27.0" layoutY="487.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Chat" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                  <JFXButton fx:id="chatBtn" buttonType="RAISED" layoutX="27.0" layoutY="487.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Chat" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
                      <font>
                         <Font size="12.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="chatBtn11" buttonType="RAISED" layoutX="27.0" layoutY="527.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Ingles" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                  <JFXButton fx:id="InglesBtn" buttonType="RAISED" layoutX="27.0" layoutY="527.0" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Ingles" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="607.0" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Cerrar sesión" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                  <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="597.0" prefHeight="33.0" prefWidth="194.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Cerrar sesión" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
                   <Pane layoutX="-75.0" layoutY="-25.0" prefHeight="200.0" prefWidth="2.0" style="-fx-background-color: #4169aa;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Grupos">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Grupos" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
          <font>
@@ -23,7 +23,7 @@
       <AnchorPane layoutX="40.0" layoutY="143.0" prefHeight="366.0" prefWidth="737.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="143.0">
          <children>
             <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Horario del grupo " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
-            <TableView layoutX="23.0" layoutY="14.0" prefHeight="319.0" prefWidth="689.0">
+            <TableView fx:id="horarioTable" layoutX="23.0" layoutY="14.0" prefHeight="319.0" prefWidth="689.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -32,13 +32,13 @@
          </children>
       </AnchorPane>
       <JFXButton fx:id="eliminarBtn" buttonType="RAISED" layoutX="661.0" layoutY="518.0" prefHeight="28.0" prefWidth="116.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Exportar PDF" />
-      <JFXComboBox layoutX="40.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
       <Label layoutX="268.0" layoutY="86.0" text="Turno:" AnchorPane.topAnchor="75.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="268.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <JFXButton fx:id="actualizarBtn1" buttonType="RAISED" layoutX="687.0" layoutY="95.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
+      <JFXComboBox fx:id="turnoCBox" layoutX="268.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="687.0" layoutY="95.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
    </children>
 </AnchorPane>
