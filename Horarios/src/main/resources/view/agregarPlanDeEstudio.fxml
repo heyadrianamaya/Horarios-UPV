@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Registros.AgregarPlanDeEstudio">
    <children>
       <Label layoutX="47.0" layoutY="25.0" text="Agregar plan de estudio" AnchorPane.leftAnchor="40.0">
          <font>
@@ -32,7 +32,7 @@
                   <Font size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="niverTxtF" layoutX="151.0" layoutY="80.0" prefWidth="335.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="nivelTxtF" layoutX="151.0" layoutY="80.0" prefWidth="335.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE">
                <font>
                   <Font size="12.0" />
                </font>

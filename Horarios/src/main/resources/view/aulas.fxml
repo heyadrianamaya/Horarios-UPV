@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Aulas">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Administrar aulas" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
          <font>
@@ -38,13 +38,13 @@
       <AnchorPane layoutX="261.0" layoutY="81.0" prefHeight="276.0" prefWidth="275.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" style="-fx-background-color: #ffffff;" text=" Lista de equipo " AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="-12.0" />
-            <JFXListView fx:id="planesList1" layoutX="19.5" layoutY="19.5" prefHeight="214.0" prefWidth="236.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0" />
+            <JFXListView fx:id="equiposList" layoutX="19.5" layoutY="19.5" prefHeight="214.0" prefWidth="236.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0" />
             <JFXButton fx:id="agregarEquipoBtn" buttonType="RAISED" layoutX="170.0" layoutY="234.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="237.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="556.0" layoutY="81.0" prefHeight="276.0" prefWidth="221.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="81.0">
          <children>
-            <JFXListView fx:id="planesList11" layoutX="40.5" layoutY="13.0" prefHeight="214.0" prefWidth="178.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0" />
+            <JFXListView fx:id="categoriasList" layoutX="40.5" layoutY="13.0" prefHeight="214.0" prefWidth="178.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0" />
             <JFXButton fx:id="agregarCategoriaBtn" buttonType="RAISED" layoutX="61.0" layoutY="238.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="237.0" />
             <Label layoutX="27.0" layoutY="5.0" style="-fx-background-color: #ffffff;" text=" Lista de categorías " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
          </children>
