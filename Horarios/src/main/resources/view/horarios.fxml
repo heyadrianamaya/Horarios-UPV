@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Horarios">
    <children>
-      <Label layoutX="37.0" layoutY="36.0" text="Asignacion de horas a profesores" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
+      <Label layoutX="37.0" layoutY="36.0" text="Asignación de horas a profesores" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="62.0" text="Grupos" AnchorPane.leftAnchor="40.0">
+      <Label layoutX="40.0" layoutY="81.0" text="Grupos" AnchorPane.leftAnchor="40.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="40.0" layoutY="130.0" prefHeight="134.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="572.0" AnchorPane.topAnchor="130.0">
+      <AnchorPane layoutX="40.0" layoutY="151.0" prefHeight="134.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="151.0">
          <children>
             <Label layoutX="10.0" layoutY="0.5" style="-fx-background-color: #ffffff;" text=" Materia " AnchorPane.topAnchor="-12.0" />
             <Label layoutX="10.0" layoutY="14.0" text="Nombre:">
@@ -31,7 +31,7 @@
                <font>
                   <Font size="11.0" />
                </font></Label>
-            <Label fx:id="hrMaxLbl1" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+            <Label fx:id="maxMatLbl" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="11.0" />
                </font></Label>
@@ -39,20 +39,20 @@
                <font>
                   <Font size="11.0" />
                </font></Label>
-            <Label fx:id="hrDispLbl1" layoutX="146.0" layoutY="97.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+            <Label fx:id="dispMatLbl" layoutX="146.0" layoutY="97.0" text="7 horas" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="11.0" />
                </font></Label>
          </children>
       </AnchorPane>
-      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="84.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <Label layoutX="40.0" layoutY="274.0" text="Turno">
+      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="104.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="40.0" />
+      <Label layoutX="40.0" layoutY="290.0" text="Turno" AnchorPane.leftAnchor="40.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="turnoCBox" layoutX="40.0" layoutY="296.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <AnchorPane layoutX="40.0" layoutY="338.0" prefHeight="186.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
+      <JFXComboBox fx:id="turnoCBox" layoutX="40.0" layoutY="315.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="40.0" />
+      <AnchorPane layoutX="40.0" layoutY="354.0" prefHeight="186.0" prefWidth="205.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0">
          <children>
             <Label layoutX="10.0" layoutY="0.5" style="-fx-background-color: #ffffff;" text=" Profesor " AnchorPane.topAnchor="-12.0" />
             <Label layoutX="10.0" layoutY="14.0" text="Profesor:">
@@ -66,7 +66,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label fx:id="hrMaxLbl2" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+            <Label fx:id="maxProfTxtF" layoutX="146.0" layoutY="71.0" text="7 horas" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="11.0" />
                </font>
@@ -76,7 +76,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label fx:id="hrDispLbl2" layoutX="146.0" layoutY="96.0" text="7 horas" AnchorPane.rightAnchor="10.0">
+            <Label fx:id="dispProfTxtF" layoutX="146.0" layoutY="96.0" text="7 horas" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="11.0" />
                </font>
@@ -93,10 +93,10 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="257.0" layoutY="84.0" prefHeight="440.0" prefWidth="519.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.rightAnchor="40.0">
+      <AnchorPane layoutX="257.0" layoutY="84.0" prefHeight="440.0" prefWidth="519.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="84.0">
          <children>
             <Label layoutX="18.0" layoutY="-8.0" style="-fx-background-color: #ffffff;" text=" Horarios disponibles " />
-            <TableView layoutX="14.0" layoutY="14.0" prefHeight="324.0" prefWidth="493.0">
+            <TableView fx:id="horariosTable" layoutX="14.0" layoutY="14.0" prefHeight="324.0" prefWidth="493.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />

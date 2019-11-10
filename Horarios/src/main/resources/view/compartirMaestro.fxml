@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="465.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="465.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Extras.CompartirMaestros">
    <children>
-      <Label layoutX="57.0" layoutY="33.0" text="Actualizar datos" AnchorPane.leftAnchor="40.0">
+      <Label layoutX="57.0" layoutY="33.0" text="Compartir maestro" AnchorPane.leftAnchor="40.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="70.0" text="Seleccione las carrearas a compartir" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="70.0">
+      <Label layoutX="40.0" layoutY="70.0" text="Seleccione las carreras a compartir" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font size="16.0" />
          </font>

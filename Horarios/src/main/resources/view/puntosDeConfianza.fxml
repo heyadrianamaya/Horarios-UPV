@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.PuntosDeConfianza">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Puntos de confianza" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
          <font>
@@ -20,25 +20,25 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="102.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="102.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="40.0" />
       <Label layoutX="268.0" layoutY="79.0" text="Turno:" AnchorPane.topAnchor="79.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="turnoCBox" layoutX="268.0" layoutY="102.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <AnchorPane layoutX="495.0" layoutY="66.0" prefHeight="66.0" prefWidth="282.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
+      <JFXComboBox fx:id="turnoCBox" layoutX="268.0" layoutY="102.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="268.0" />
+      <AnchorPane layoutX="495.0" layoutY="66.0" prefHeight="66.0" prefWidth="282.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="495.0" AnchorPane.rightAnchor="40.0">
          <children>
             <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Asignación de puntos " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
-            <Label layoutX="14.0" layoutY="30.0" text="Puntos:" />
-            <JFXComboBox layoutX="77.0" layoutY="23.0" prefHeight="26.0" prefWidth="78.0" />
-            <JFXButton fx:id="eliminarBtn1" buttonType="RAISED" layoutX="190.0" layoutY="24.0" prefHeight="28.0" prefWidth="78.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Guardar" />
+            <Label layoutX="14.0" layoutY="30.0" text="Puntos:" AnchorPane.leftAnchor="14.0" />
+            <JFXComboBox fx:id="puntosCBox" layoutX="77.5" layoutY="23.0" prefHeight="28.0" prefWidth="96.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="112.0" />
+            <JFXButton fx:id="guardarBtn" buttonType="RAISED" layoutX="190.0" layoutY="22.0" prefHeight="28.0" prefWidth="78.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Guardar" AnchorPane.rightAnchor="14.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="40.0" layoutY="153.0" prefHeight="379.0" prefWidth="737.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="153.0">
          <children>
             <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Plan de estudios " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
-            <TableView layoutX="20.5" layoutY="18.5" prefHeight="346.0" prefWidth="702.0" style="-fx-border-color: #4059a9;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="16.0">
+            <TableView fx:id="planTable" layoutX="20.5" layoutY="18.5" prefHeight="346.0" prefWidth="702.0" style="-fx-border-color: #4059a9;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="16.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="C1" />
                   <TableColumn prefWidth="75.0" text="C2" />
