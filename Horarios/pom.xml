@@ -6,9 +6,13 @@
 
   <groupId>com.upv</groupId>
   <artifactId>horarios</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>bd.datos</module>
+    </modules>
 
-  <name>horarios</name>
+    <name>horarios</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
