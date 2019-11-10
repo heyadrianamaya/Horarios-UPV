@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Ingles">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Ingles">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Cursos de capacitación" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="75.0" text="Cursos de capacitacion" AnchorPane.leftAnchor="40.0">
+      <Label layoutX="40.0" layoutY="77.0" text="Cursos de capacitación" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="77.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="158.0" layoutY="518.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
-      <JFXListView fx:id="cursosList" layoutX="40.0" layoutY="102.0" prefHeight="406.0" prefWidth="193.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="102.0" />
-      <AnchorPane layoutX="252.0" layoutY="85.0" prefHeight="77.0" prefWidth="508.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="85.0">
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="215.0" layoutY="518.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="215.0" />
+      <JFXListView fx:id="cursosList" layoutX="40.0" layoutY="102.0" prefHeight="406.0" prefWidth="250.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="102.0" />
+      <AnchorPane layoutX="304.0" layoutY="85.0" prefHeight="77.0" prefWidth="473.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="85.0">
          <children>
             <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Datos de cursos " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
             <Label layoutX="23.0" text="Nombre:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="11.0" />
@@ -32,12 +32,12 @@
             <Label fx:id="detallesLbl" layoutX="159.0" text="Label" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="38.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="252.0" layoutY="211.0" prefHeight="370.0" prefWidth="525.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="40.0">
+      <AnchorPane layoutX="304.0" layoutY="211.0" prefHeight="370.0" prefWidth="473.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="176.0">
          <children>
             <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Horas asignadas " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
-            <Label layoutX="23.0" text="Turno:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="17.0" />
-            <JFXComboBox fx:id="turnoCBox" layoutX="81.0" layoutY="15.0" prefHeight="26.0" prefWidth="193.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-            <TableView fx:id="cursosTable" layoutX="23.0" layoutY="47.0" prefHeight="304.0" prefWidth="479.0">
+            <Label layoutX="28.5" layoutY="22.5" prefHeight="16.0" prefWidth="57.0" text="Turno:" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="391.0" AnchorPane.topAnchor="20.0" />
+            <JFXComboBox fx:id="turnoCBox" layoutX="81.0" layoutY="15.0" prefHeight="26.0" prefWidth="193.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.rightAnchor="199.0" />
+            <TableView fx:id="cursosTable" layoutX="23.0" layoutY="47.0" prefHeight="304.0" prefWidth="479.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="47.5">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />

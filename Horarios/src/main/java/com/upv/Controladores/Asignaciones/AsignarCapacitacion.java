@@ -1,7 +1,6 @@
-package com.upv.Controladores.Registros;
+package com.upv.Controladores.Asignaciones;
 
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
@@ -9,11 +8,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AgregarGrupo implements Initializable {
+public class AsignarCapacitacion implements Initializable {
     private Stage prevStage;
-    @FXML private JFXTextField claveTxtF;
-    @FXML private JFXComboBox cuatrimestreCBox;
-    @FXML private JFXComboBox planCBox;
+
+    @FXML private JFXComboBox categoriaCBox;
 
     public void setPrevStage(Stage prevStage) {
         this.prevStage = prevStage;

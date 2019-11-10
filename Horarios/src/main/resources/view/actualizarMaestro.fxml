@@ -81,8 +81,6 @@
             </JFXTextField>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="462.0" layoutY="470.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" />
-      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="47.0" layoutY="470.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
       <Label layoutX="47.0" layoutY="23.0" text="Actualizar información de maestro">
          <font>
             <Font size="25.0" />
@@ -126,5 +124,7 @@
             </JFXTextField>
          </children>
       </AnchorPane>
+      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="462.0" layoutY="470.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" />
+      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="47.0" layoutY="470.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
    </children>
 </AnchorPane>

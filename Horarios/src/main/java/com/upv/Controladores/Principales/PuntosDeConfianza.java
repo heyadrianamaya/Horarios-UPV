@@ -8,10 +8,10 @@ import javafx.scene.control.TableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Disponibilidad implements Initializable {
-    @FXML private JFXComboBox profesoresCBox;
+public class PuntosDeConfianza implements Initializable {
+    @FXML private JFXComboBox grupoCBox;
     @FXML private JFXComboBox turnoCBox;
-    @FXML private TableView disponiblesTable;
+    @FXML private TableView planTable;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

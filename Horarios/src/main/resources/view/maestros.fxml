@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Maestros">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Maestros">
    <children>
-      <Label layoutX="47.0" layoutY="37.0" text="Administrar profesores" AnchorPane.leftAnchor="37.0">
+      <Label layoutX="47.0" layoutY="37.0" text="Administrar profesores" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="36.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="88.0" text="Lista de profesores:" AnchorPane.leftAnchor="37.0">
+      <Label layoutX="37.0" layoutY="72.0" text="Lista de profesores:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXListView fx:id="profesoresList" layoutX="223.0" layoutY="245.0" prefHeight="395.0" prefWidth="200.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="116.0" />
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="147.0" layoutY="519.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="147.0" />
-      <JFXButton fx:id="eliminarBtn" buttonType="RAISED" layoutX="699.0" layoutY="431.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Eliminar" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="431.0" />
-      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="601.0" layoutY="431.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="431.0" />
-      <JFXButton fx:id="compartirBtn" buttonType="RAISED" layoutX="503.0" layoutY="431.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Compartir" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="431.0" />
-      <AnchorPane layoutX="267.0" layoutY="116.0" prefHeight="213.0" prefWidth="522.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
+      <JFXListView fx:id="profesoresList" layoutX="223.0" layoutY="245.0" prefHeight="417.0" prefWidth="250.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="94.0" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="199.0" layoutY="517.0" onAction="#agregar" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="199.0" />
+      <JFXButton fx:id="eliminarBtn" buttonType="RAISED" layoutX="699.0" layoutY="414.0" onAction="#eliminar" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Eliminar" AnchorPane.rightAnchor="28.0" />
+      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="601.0" layoutY="414.0" onAction="#actualizar" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" AnchorPane.rightAnchor="126.0" />
+      <JFXButton fx:id="compartirBtn" buttonType="RAISED" layoutX="503.0" layoutY="414.0" onAction="#compartir" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Compartir" AnchorPane.rightAnchor="224.0" />
+      <AnchorPane layoutX="305.0" layoutY="116.0" prefHeight="213.0" prefWidth="484.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="94.0">
          <children>
             <Label style="-fx-background-color: #ffffff;" text=" Datos del profesor " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
             <Label layoutX="23.0" layoutY="81.0" text="Nivel academico:">
@@ -84,7 +84,7 @@
             </JFXTextField>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="267.0" layoutY="342.0" prefHeight="80.0" prefWidth="522.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;">
+      <AnchorPane layoutX="305.0" layoutY="325.0" prefHeight="80.0" prefWidth="484.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="325.0">
          <children>
             <Label style="-fx-background-color: #ffffff;" text=" Datos de acceso " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
             <JFXTextField fx:id="usuarioTxtF" layoutX="180.0" layoutY="12.0" prefHeight="25.0" prefWidth="313.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" visible="false">
@@ -111,5 +111,6 @@
             <Label fx:id="contrasenaLbl" layoutX="180.0" layoutY="47.0" text="Label" />
          </children>
       </AnchorPane>
+      <JFXButton fx:id="asignarBtn" buttonType="RAISED" layoutX="378.0" layoutY="414.0" onAction="#asignar" prefHeight="28.0" prefWidth="166.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Asignar capacitación" AnchorPane.rightAnchor="323.0" />
    </children>
 </AnchorPane>
