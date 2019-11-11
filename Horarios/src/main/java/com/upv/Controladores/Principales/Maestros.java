@@ -1,5 +1,6 @@
 package com.upv.Controladores.Principales;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
@@ -8,6 +9,7 @@ import com.upv.Controladores.Asignaciones.AsignarCapacitacion;
 import com.upv.Controladores.Extras.CompartirMaestros;
 import com.upv.Controladores.Registros.AgregarMaestro;
 import com.upv.expeciones.Mensajes;
+import com.upv.utils.ChangeValues;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,7 +30,12 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Maestros implements Initializable {
+public class Maestros implements Initializable, ChangeValues {
+    public JFXButton agregarBtn;
+    public JFXButton eliminarBtn;
+    public JFXButton actualizarBtn;
+    public JFXButton compartirBtn;
+    public JFXButton asignarBtn;
     private Stage prevStage;
 
     @FXML private JFXListView<Usuarios.Usuario> profesoresList;
@@ -54,6 +61,8 @@ public class Maestros implements Initializable {
     @FXML private Label usuarioLbl;
     @FXML private Label contrasenaLbl;
 
+    private Usuarios.Usuario usuarioSelected;
+
     public void setPrevStage(Stage prevStage){
         this.prevStage = prevStage;
     }
@@ -62,12 +71,20 @@ public class Maestros implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Carreras.Carrera carrera = ManagerConnection.getInstance().getCarreras().getCarrera(1);
-            ObservableList<Usuarios.Usuario> items= FXCollections.observableList(
-                    ManagerConnection.getInstance().getUsuarios(carrera).getUsuarios()
-            );
+            ObservableList<Usuarios.Usuario> items= FXCollections.observableList(ManagerConnection.getInstance().getUsuarios(carrera).getUsuarios());
             this.profesoresList.setItems(items);
+            this.profesoresList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                usuarioSelected = newValue;
+                onChangeValueInfo();
+            });
+            onChangeValueInfo();
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
+            this.asignarBtn.setDisable(true);
+            this.eliminarBtn.setDisable(true);
+            this.compartirBtn.setDisable(true);
+            this.actualizarBtn.setDisable(true);
+            this.agregarBtn.setDisable(true);
         }
     }
 
@@ -101,7 +118,9 @@ public class Maestros implements Initializable {
 
                 ActualizarMaestro actualizarController = getFXML.getController(); //Clase la cual
                 actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
-
+                if(this.usuarioSelected!=null){
+                    actualizarController.setParameter(this.usuarioSelected);
+                }
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
                 stagePantalla.initModality(Modality.APPLICATION_MODAL);
@@ -150,6 +169,37 @@ public class Maestros implements Initializable {
                 stagePantalla.initOwner(prevStage);
                 stagePantalla.show(); //Mostramos pantalla de de agregar maestro
                 break;
+        }
+    }
+
+    @Override
+    public void onChangeValueInfo() {
+        if(this.usuarioSelected!=null){
+            this.nombreLbl.setText(this.usuarioSelected.getNombre());
+            this.carreraLbl.setText(String.valueOf(this.usuarioSelected.getId_carrera()));
+            this.contrasenaLbl.setText(this.usuarioSelected.getPassword());
+            this.imrLbl.setText(String.valueOf(this.usuarioSelected.getIMR()));
+            this.contratoLbl.setText(this.usuarioSelected.getContrato());
+            this.nivelLbl.setText(this.usuarioSelected.getNivel());
+            this.telefonoLbl.setText(this.usuarioSelected.getTelefono());
+            this.usuarioLbl.setText(this.usuarioSelected.getClave());
+            this.asignarBtn.setVisible(true);
+            this.eliminarBtn.setVisible(true);
+            this.compartirBtn.setVisible(true);
+            this.actualizarBtn.setVisible(true);
+        }else{
+            this.nombreLbl.setText("");
+            this.carreraLbl.setText("");
+            this.contrasenaLbl.setText("");
+            this.imrLbl.setText("");
+            this.contratoLbl.setText("");
+            this.nivelLbl.setText("");
+            this.telefonoLbl.setText("");
+            this.usuarioLbl.setText("");
+            this.asignarBtn.setVisible(false);
+            this.eliminarBtn.setVisible(false);
+            this.compartirBtn.setVisible(false);
+            this.actualizarBtn.setVisible(false);
         }
     }
 

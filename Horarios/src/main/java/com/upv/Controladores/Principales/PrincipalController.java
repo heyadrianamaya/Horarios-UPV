@@ -1,23 +1,32 @@
 package com.upv.Controladores.Principales;
 
-import com.upv.expeciones.Mensajes;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import upv.poo.basededatos.ManagerConnection;
 import upv.poo.datos.login.Login;
+import upv.poo.utils.TipoUsuario;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PrincipalController implements Initializable {
+    public JFXButton disponibilidadBtn;
+    public JFXButton materiasBtn;
+    public JFXButton maestrosBtn;
+    public JFXButton carrerasBtn;
+    public JFXButton planesBtn;
+    public JFXButton aulasBtn;
+    public JFXButton gruposBtn;
+    public JFXButton horariosBtn;
+    public JFXButton PuntosBtn;
+    public JFXButton chatBtn;
+    public JFXButton inglesBtn;
     @FXML private Label nombreUsuario;
     @FXML private BorderPane pantallaBorder;
     @FXML private Pane panelSecundario;
@@ -35,18 +44,25 @@ public class PrincipalController implements Initializable {
             switch (this.login.getTipoUsuario()){
                 case SIN_AUTO:
                     System.out.println("Sin autorizacion");
-                    break;
-                case DIRECTOR:
-                    System.out.println("Director");
-                    break;
-                case PROFESOR:
-                    System.out.println("Profesor");
+                    disableAllButtons();
                     break;
                 case ADMIN:
                     System.out.println("Administrador");
                     break;
+                case DIRECTOR:
+                    System.out.println("Director");
+                    this.carrerasBtn.setDisable(true);
+                case PROFESOR:
+                    System.out.println("Profesor");
+                    this.aulasBtn.setDisable(true);
+                    this.carrerasBtn.setDisable(true);
+                    this.gruposBtn.setDisable(true);
+                    this.planesBtn.setDisable(true);
+                    this.inglesBtn.setDisable(true);
+                    this.PuntosBtn.setDisable(true);
+                    disponibilidad();
+                    break;
             }
-            disponibilidad();
         }
     }
 
@@ -59,13 +75,14 @@ public class PrincipalController implements Initializable {
 
     }
 
-    public void cambiarPantalla(int pantalla) throws IOException {
+    private void cambiarPantalla(int pantalla) throws IOException {
         FXMLLoader getFXML;
         switch (pantalla){
             case 1: //Disponibilidad
                 getFXML = new FXMLLoader(getClass().getResource("/view/disponibilidad.fxml")); //Obtener la informacion del escenario
                 panelSecundario = getFXML.load();
-
+                Disponibilidad disponibilidad = getFXML.getController();
+                disponibilidad.setParameter(this.login);
                 break;
             case 2: //Materias
                 getFXML = new FXMLLoader(getClass().getResource("/view/materias.fxml")); //Obtener la informacion del escenario
@@ -153,5 +170,18 @@ public class PrincipalController implements Initializable {
     }
     public void ingles() throws IOException {
         cambiarPantalla(11);
+    }
+    private void disableAllButtons(){
+        this.aulasBtn.setDisable(true);
+        this.carrerasBtn.setDisable(true);
+        this.chatBtn.setDisable(true);
+        this.disponibilidadBtn.setDisable(true);
+        this.gruposBtn.setDisable(true);
+        this.horariosBtn.setDisable(true);
+        this.maestrosBtn.setDisable(true);
+        this.materiasBtn.setDisable(true);
+        this.planesBtn.setDisable(true);
+        this.inglesBtn.setDisable(true);
+        this.PuntosBtn.setDisable(true);
     }
 }

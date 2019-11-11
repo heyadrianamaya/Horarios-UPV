@@ -8,12 +8,16 @@ import com.upv.Controladores.Registros.AgregarAula;
 import com.upv.Controladores.Registros.AgregarCategoria;
 import com.upv.Controladores.Registros.AgregarEquipo;
 import com.upv.expeciones.Mensajes;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -42,6 +46,7 @@ public class Aulas implements Initializable{
     @FXML private JFXButton agregarCategoriaBtn;
     @FXML private JFXButton agregarBtn;
     @FXML private JFXListView<upv.poo.datos.aulas.Aulas.Aula> planesList;
+    private upv.poo.datos.aulas.Aulas.Aula aula;
 
     public void setPrevStage(Stage prevStage){
         this.prevStage = prevStage;
@@ -59,8 +64,19 @@ public class Aulas implements Initializable{
             this.planesList.setItems(aulas);
             this.categoriasList.setItems(categorias);
             this.equiposList.setItems(equipos);
+            this.planesList.getSelectionModel().selectedItemProperty()
+                    .addListener((observable, oldValue, newValue) -> {
+                        aula = newValue;
+                        onChangeValuesInfo();
+                    });
+            onChangeValuesInfo();
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
+            this.asignarEquipoBtn.setDisable(true);
+            this.actualizarBtn.setDisable(true);
+            this.agregarBtn.setDisable(true);
+            this.agregarCategoriaBtn.setDisable(true);
+            this.agregarEquipoBtn.setDisable(true);
         }
     }
 
@@ -94,6 +110,9 @@ public class Aulas implements Initializable{
 
                 ActualizarAula actualizarController = getFXML.getController(); //Clase la cual
                 actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
+                if (this.aula!=null){
+                    actualizarController.setParameter(aula);
+                }
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -157,6 +176,25 @@ public class Aulas implements Initializable{
                 stagePantalla.initOwner(prevStage);
                 stagePantalla.show(); //Mostramos pantalla de de agregar aula
                 break;
+        }
+    }
+
+    private void onChangeValuesInfo(){
+        if (this.aula!=null){
+            System.out.println(this.aula);
+            this.nombreLbl.setText(this.aula.getNombre());
+            this.capacidadLbl.setText(this.aula.getCapacidad() + " alumnos");
+            this.claveLbl.setText(this.aula.getId());
+            this.tipoLbl.setText(this.aula.getTipo());
+            this.actualizarBtn.setVisible(true);
+            this.asignarEquipoBtn.setVisible(true);
+        }else{
+            this.nombreLbl.setText("");
+            this.capacidadLbl.setText("");
+            this.claveLbl.setText("");
+            this.tipoLbl.setText("");
+            this.actualizarBtn.setVisible(false);
+            this.asignarEquipoBtn.setVisible(false);
         }
     }
 }

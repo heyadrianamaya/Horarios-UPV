@@ -65,7 +65,7 @@
                      <font>
                         <Font size="12.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="InglesBtn" buttonType="RAISED" layoutX="27.0" layoutY="527.0" onAction="#ingles" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Ingles" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+                  <JFXButton fx:id="inglesBtn" buttonType="RAISED" layoutX="27.0" layoutY="527.0" onAction="#ingles" prefHeight="35.0" prefWidth="193.0" style="-fx-background-color: #ffffff; -fx-border-color: #4169aa;" text="Ingles" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
                      <font>
                         <Font size="12.0" />
                      </font>
