@@ -19,7 +19,6 @@ public class App extends Application {
         FXMLLoader obtenerSesion = new FXMLLoader(getClass().getResource("/view/iniciarSesion.fxml")); //Obtener datos de pantalla
 
         Pane paneSesion = obtenerSesion.load(); //Obtenemos los datos
-
         InicioSesionController claseLogin = obtenerSesion.getController();
 
         claseLogin.setPrevStage(primaryStage);

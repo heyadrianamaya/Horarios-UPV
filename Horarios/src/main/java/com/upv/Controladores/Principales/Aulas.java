@@ -3,14 +3,13 @@ package com.upv.Controladores.Principales;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.upv.Controladores.Actualizaciones.ActualizarAula;
-import com.upv.Controladores.Actualizaciones.ActualizarMaestro;
 import com.upv.Controladores.Asignaciones.AsignacionEquipo;
-import com.upv.Controladores.Asignaciones.AsignarCapacitacion;
-import com.upv.Controladores.Extras.CompartirMaestros;
 import com.upv.Controladores.Registros.AgregarAula;
 import com.upv.Controladores.Registros.AgregarCategoria;
 import com.upv.Controladores.Registros.AgregarEquipo;
-import com.upv.Controladores.Registros.AgregarMaestro;
+import com.upv.expeciones.Mensajes;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,9 +18,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import upv.poo.basededatos.ManagerConnection;
+import upv.poo.datos.aulas.Categorias;
+import upv.poo.datos.aulas.Equipos;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Aulas implements Initializable{
@@ -33,12 +36,12 @@ public class Aulas implements Initializable{
     @FXML private Label capacidadLbl;
     @FXML private JFXButton asignarEquipoBtn;
     @FXML private JFXButton actualizarBtn;
-    @FXML private JFXListView equiposList;
+    @FXML private JFXListView<Equipos.Equipo> equiposList;
     @FXML private JFXButton agregarEquipoBtn;
-    @FXML private JFXListView categoriasList;
+    @FXML private JFXListView<Categorias.Categoria> categoriasList;
     @FXML private JFXButton agregarCategoriaBtn;
     @FXML private JFXButton agregarBtn;
-    @FXML private JFXListView planesList;
+    @FXML private JFXListView<upv.poo.datos.aulas.Aulas.Aula> planesList;
 
     public void setPrevStage(Stage prevStage){
         this.prevStage = prevStage;
@@ -46,7 +49,19 @@ public class Aulas implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        try {
+            ObservableList<upv.poo.datos.aulas.Aulas.Aula> aulas;
+            ObservableList<Equipos.Equipo> equipos;
+            ObservableList<Categorias.Categoria>categorias;
+            aulas = FXCollections.observableArrayList(ManagerConnection.getInstance().getAulas().getAulas());
+            equipos = FXCollections.observableArrayList(ManagerConnection.getInstance().getEquipos().getEquipos());
+            categorias = FXCollections.observableArrayList(ManagerConnection.getInstance().getCategorias().getCategorias());
+            this.planesList.setItems(aulas);
+            this.categoriasList.setItems(categorias);
+            this.equiposList.setItems(equipos);
+        } catch (SQLException | ClassNotFoundException e) {
+            Mensajes.setMensaje(e, e.getMessage());
+        }
     }
 
     public void actualizarAula() throws IOException {

@@ -1,21 +1,54 @@
 package com.upv.Controladores.Principales;
 
+import com.upv.expeciones.Mensajes;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import upv.poo.basededatos.ManagerConnection;
+import upv.poo.datos.login.Login;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PrincipalController implements Initializable {
+    @FXML private Label nombreUsuario;
     @FXML private BorderPane pantallaBorder;
     @FXML private Pane panelSecundario;
     private Stage prevStage;
+    private Login login;
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) throws IOException {
+        this.login = login;
+        if (this.login!=null){
+            this.nombreUsuario.setText(this.login.getUsuario());
+            switch (this.login.getTipoUsuario()){
+                case SIN_AUTO:
+                    System.out.println("Sin autorizacion");
+                    break;
+                case DIRECTOR:
+                    System.out.println("Director");
+                    break;
+                case PROFESOR:
+                    System.out.println("Profesor");
+                    break;
+                case ADMIN:
+                    System.out.println("Administrador");
+                    break;
+            }
+            disponibilidad();
+        }
+    }
 
     public void setPrevStage(Stage prevStage){
         this.prevStage = prevStage;
@@ -23,11 +56,7 @@ public class PrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            disponibilidad();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void cambiarPantalla(int pantalla) throws IOException {
@@ -36,6 +65,7 @@ public class PrincipalController implements Initializable {
             case 1: //Disponibilidad
                 getFXML = new FXMLLoader(getClass().getResource("/view/disponibilidad.fxml")); //Obtener la informacion del escenario
                 panelSecundario = getFXML.load();
+
                 break;
             case 2: //Materias
                 getFXML = new FXMLLoader(getClass().getResource("/view/materias.fxml")); //Obtener la informacion del escenario

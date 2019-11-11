@@ -5,14 +5,19 @@ import com.jfoenix.controls.JFXListView;
 import com.upv.Controladores.Actualizaciones.ActualizarCarrera;
 import com.upv.Controladores.Actualizaciones.ActualizarMaestro;
 import com.upv.Controladores.Extras.CompartirMaestros;
+import com.upv.expeciones.Mensajes;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import upv.poo.basededatos.ManagerConnection;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +27,7 @@ public class Carreras implements Initializable {
     private Stage prevStage;
 
     @FXML private JFXButton agregarBtn;
-    @FXML private JFXListView carrerasList;
+    @FXML private JFXListView<upv.poo.datos.carreras.Carreras.Carrera> carrerasList;
     @FXML private Label idCarreraLbl;
     @FXML private Label nombreCarreraLbl;
     @FXML private JFXButton eliminarBtn;
@@ -34,6 +39,15 @@ public class Carreras implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            ObservableList<upv.poo.datos.carreras.Carreras.Carrera> carreraObservableList =
+                    FXCollections.observableArrayList(
+                            ManagerConnection.getInstance().getCarreras().getCarreras()
+                );
+            this.carrerasList.setItems(carreraObservableList);
+        }catch (Exception e){
+            Mensajes.setMensaje(e, e.getMessage());
+        }
 
     }
 

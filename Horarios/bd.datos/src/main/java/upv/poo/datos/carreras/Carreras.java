@@ -89,4 +89,11 @@ public class Carreras {
     public void addCarrera(int id, String nombre){
         this.carreras.add(new Carrera(id, nombre));
     }
+    public Carrera getCarrera(int id){
+        for (Carrera carrera: this.carreras){
+            if (carrera.getId() == id)
+                return carrera;
+        }
+        return null;
+    }
 }

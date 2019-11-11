@@ -78,7 +78,7 @@
          <bottom>
             <AnchorPane prefHeight="11.0" prefWidth="1280.0" style="-fx-background-color: #4169aa;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="24.0" layoutY="4.0" text="Label" textFill="WHITE" AnchorPane.leftAnchor="24.0">
+                  <Label layoutX="24.0" layoutY="4.0" text="Label" textFill="WHITE" AnchorPane.leftAnchor="24.0" fx:id="nombreUsuario">
                      <font>
                         <Font size="15.0" />
                      </font>
