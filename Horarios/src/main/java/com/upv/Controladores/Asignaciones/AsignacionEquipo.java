@@ -85,4 +85,8 @@ public class AsignacionEquipo implements Initializable, Parametized<Aulas.Aula> 
             this.agregarBtn.setDisable(true);
         }
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

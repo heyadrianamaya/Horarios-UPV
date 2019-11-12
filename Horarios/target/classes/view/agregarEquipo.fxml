@@ -34,7 +34,7 @@
             <JFXComboBox fx:id="categoriaCBox" layoutX="126.0" layoutY="96.0" prefWidth="154.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
          </children>
       </AnchorPane>
-      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="231.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <JFXButton fx:id="cancelarBtn" onAction="#salir" buttonType="RAISED" layoutX="40.0" layoutY="231.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
       <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="376.0" layoutY="231.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" />
    </children>
 </AnchorPane>

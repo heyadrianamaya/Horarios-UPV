@@ -78,7 +78,7 @@
          </children>
       </AnchorPane>
       <JFXButton fx:id="registrarBtn" buttonType="RAISED" layoutX="432.0" layoutY="458.0" prefHeight="28.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Registrar" AnchorPane.rightAnchor="48.0" />
-      <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="47.0" layoutY="458.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
+      <JFXButton fx:id="cancelarBtn" onAction="#salir" buttonType="RAISED" layoutX="47.0" layoutY="458.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />
       <Label layoutX="47.0" layoutY="23.0" text="Agregar maestro">
          <font>
             <Font size="25.0" />

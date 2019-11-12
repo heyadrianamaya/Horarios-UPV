@@ -47,6 +47,10 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
         }
+
+        if(prevStage==null){
+            System.out.println("No null");
+        }
     }
 
     @Override
@@ -82,5 +86,12 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
         }else{
             this.actualizarBtn.setDisable(true);
         }
+    }
+
+    public void salir(){
+        System.out.println(prevStage);
+        this.prevStage.close();
+        System.out.println("Cancelar");
+        //System.exit(0);
     }
 }

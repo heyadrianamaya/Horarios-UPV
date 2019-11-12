@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82407d16-6340-4b00-b6cf-6edc3563d26c" name="Default Changelist" comment="" />
+    <list default="true" id="aa220cd6-00c6-4c35-8ce7-994ba8db0691" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +23,24 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1TFjifyPT8OrePkLx0aF2N3nZ4v" />
+  <component name="ProjectId" id="1TUcxIHLJO5qmHNT3rliWMXz7A9" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documentos/Github/Proyecto-Final-Horarios-Base" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\adria\IdeaProjects\Horarios\target\classes" />
+      <recent name="C:\Users\adria\IdeaProjects\Horarios\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adria\IdeaProjects\Horarios\src\main" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -66,19 +79,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="82407d16-6340-4b00-b6cf-6edc3563d26c" name="Default Changelist" comment="" />
-      <created>1573062867560</created>
+      <changelist id="aa220cd6-00c6-4c35-8ce7-994ba8db0691" name="Default Changelist" comment="" />
+      <created>1573518360099</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573062867560</updated>
-      <workItem from="1573062879388" duration="658000" />
-      <workItem from="1573064729490" duration="1257000" />
-      <workItem from="1573133587173" duration="790000" />
-      <workItem from="1573230743249" duration="309000" />
-      <workItem from="1573234186019" duration="2087000" />
-      <workItem from="1573236421457" duration="3058000" />
-      <workItem from="1573246488957" duration="191000" />
-      <workItem from="1573324504551" duration="3936000" />
+      <updated>1573518360099</updated>
+      <workItem from="1573518364884" duration="275000" />
+      <workItem from="1573546176963" duration="13691000" />
+      <workItem from="1573563386570" duration="1525000" />
     </task>
     <servers />
   </component>

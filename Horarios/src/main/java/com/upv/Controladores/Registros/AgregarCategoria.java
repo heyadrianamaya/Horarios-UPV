@@ -22,4 +22,8 @@ public class AgregarCategoria implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

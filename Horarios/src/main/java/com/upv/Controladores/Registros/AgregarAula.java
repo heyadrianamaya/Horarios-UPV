@@ -25,5 +25,7 @@ public class AgregarAula implements Initializable {
 
     }
 
-
+    public void salir(){
+        this.prevStage.close();
+    }
 }

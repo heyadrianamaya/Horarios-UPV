@@ -49,4 +49,8 @@ public class ActualizarCarrera implements Initializable, Parametized<Carreras.Ca
             this.registrarBtn.setDisable(true);
         }
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

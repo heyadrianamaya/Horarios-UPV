@@ -39,4 +39,8 @@ public class AgregarGrupo implements Initializable{
             Mensajes.setMensaje(e, e.getMessage());
         }
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

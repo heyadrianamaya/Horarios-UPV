@@ -92,7 +92,7 @@ public class InicioSesionController implements Initializable {
         stageBusqueda.setWidth(screenSize.width);
         stageBusqueda.setHeight(screenSize.height);
         stageBusqueda.setResizable(false); //Mover el tamaño
-        stageBusqueda.setFullScreen(true);
+        //stageBusqueda.setFullScreen(true);
 
         stageBusqueda.setScene(escenaBusqueda); //Asignamos escenario
 
