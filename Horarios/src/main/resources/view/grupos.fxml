@@ -39,6 +39,6 @@
          </font>
       </Label>
       <JFXComboBox fx:id="turnoCBox" layoutX="268.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="687.0" layoutY="95.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="40.0" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="687.0" layoutY="95.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="40.0" onAction="#agregar"/>
    </children>
 </AnchorPane>

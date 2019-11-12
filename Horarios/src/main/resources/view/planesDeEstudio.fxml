@@ -18,7 +18,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="216.0" layoutY="510.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="216.0" />
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="216.0" layoutY="510.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="216.0" onAction="#agregar"/>
       <JFXListView fx:id="planesList" layoutX="42.0" layoutY="94.0" prefHeight="421.0" prefWidth="250.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="94.0" />
       <AnchorPane layoutX="302.0" layoutY="94.0" prefHeight="151.0" prefWidth="475.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="94.0">
          <children>
@@ -34,6 +34,6 @@
          </children>
       </AnchorPane>
       <JFXButton fx:id="eliminarBtn" buttonType="RAISED" layoutX="687.0" layoutY="255.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Eliminar" AnchorPane.rightAnchor="137.0" />
-      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="590.0" layoutY="255.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" AnchorPane.rightAnchor="40.0" />
+      <JFXButton fx:id="actualizarBtn" buttonType="RAISED" layoutX="590.0" layoutY="255.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Actualizar" AnchorPane.rightAnchor="40.0" onAction="#actualizar"/>
    </children>
 </AnchorPane>

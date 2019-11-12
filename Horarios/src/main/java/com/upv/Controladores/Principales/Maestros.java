@@ -10,6 +10,7 @@ import com.upv.Controladores.Extras.CompartirMaestros;
 import com.upv.Controladores.Registros.AgregarMaestro;
 import com.upv.expeciones.Mensajes;
 import com.upv.utils.ChangeValues;
+import com.upv.utils.Parametized;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import upv.poo.basededatos.ManagerConnection;
 import upv.poo.datos.carreras.Carreras;
+import upv.poo.datos.login.Login;
 import upv.poo.datos.usuarios.Usuarios;
 
 import java.io.IOException;
@@ -30,7 +32,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Maestros implements Initializable, ChangeValues {
+public class Maestros implements Initializable, Parametized<Login> {
     public JFXButton agregarBtn;
     public JFXButton eliminarBtn;
     public JFXButton actualizarBtn;
@@ -61,6 +63,7 @@ public class Maestros implements Initializable, ChangeValues {
     @FXML private Label usuarioLbl;
     @FXML private Label contrasenaLbl;
 
+    private Login login;
     private Usuarios.Usuario usuarioSelected;
 
     public void setPrevStage(Stage prevStage){
@@ -69,23 +72,6 @@ public class Maestros implements Initializable, ChangeValues {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            Carreras.Carrera carrera = ManagerConnection.getInstance().getCarreras().getCarrera(1);
-            ObservableList<Usuarios.Usuario> items= FXCollections.observableList(ManagerConnection.getInstance().getUsuarios(carrera).getUsuarios());
-            this.profesoresList.setItems(items);
-            this.profesoresList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                usuarioSelected = newValue;
-                onChangeValueInfo();
-            });
-            onChangeValueInfo();
-        } catch (SQLException | ClassNotFoundException e) {
-            Mensajes.setMensaje(e, e.getMessage());
-            this.asignarBtn.setDisable(true);
-            this.eliminarBtn.setDisable(true);
-            this.compartirBtn.setDisable(true);
-            this.actualizarBtn.setDisable(true);
-            this.agregarBtn.setDisable(true);
-        }
     }
 
     public void actualizar() throws IOException {
@@ -115,7 +101,6 @@ public class Maestros implements Initializable, ChangeValues {
                 stagePantalla.setTitle("Actualizar Maestro"); //Poner su titulo
                 getFXML = new FXMLLoader(getClass().getResource("/view/actualizarMaestro.fxml")); //Obtener la informacion del escenario
                 panePantalla = getFXML.load(); //En un pane poner los datos
-
                 ActualizarMaestro actualizarController = getFXML.getController(); //Clase la cual
                 actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
                 if(this.usuarioSelected!=null){
@@ -175,32 +160,69 @@ public class Maestros implements Initializable, ChangeValues {
     @Override
     public void onChangeValueInfo() {
         if(this.usuarioSelected!=null){
-            this.nombreLbl.setText(this.usuarioSelected.getNombre());
-            this.carreraLbl.setText(String.valueOf(this.usuarioSelected.getId_carrera()));
-            this.contrasenaLbl.setText(this.usuarioSelected.getPassword());
-            this.imrLbl.setText(String.valueOf(this.usuarioSelected.getIMR()));
-            this.contratoLbl.setText(this.usuarioSelected.getContrato());
-            this.nivelLbl.setText(this.usuarioSelected.getNivel());
-            this.telefonoLbl.setText(this.usuarioSelected.getTelefono());
-            this.usuarioLbl.setText(this.usuarioSelected.getClave());
-            this.asignarBtn.setVisible(true);
-            this.eliminarBtn.setVisible(true);
-            this.compartirBtn.setVisible(true);
-            this.actualizarBtn.setVisible(true);
+            try {
+                this.nombreLbl.setText(this.usuarioSelected.getNombre());
+                this.carreraLbl.setText(String.valueOf(
+                        ManagerConnection.getInstance().getCarreras().getCarrera(this.usuarioSelected.getId_carrera())
+                ));
+                this.contrasenaLbl.setText(this.usuarioSelected.getPassword());
+                this.imrLbl.setText(String.valueOf(this.usuarioSelected.getIMR()));
+                this.contratoLbl.setText(this.usuarioSelected.getContrato());
+                this.nivelLbl.setText(this.usuarioSelected.getNivel());
+                this.telefonoLbl.setText(this.usuarioSelected.getTelefono());
+                this.usuarioLbl.setText(this.usuarioSelected.getClave());
+                this.asignarBtn.setVisible(true);
+                this.eliminarBtn.setVisible(true);
+                this.compartirBtn.setVisible(true);
+                this.actualizarBtn.setVisible(true);
+            } catch (SQLException | ClassNotFoundException e) {
+                Mensajes.setMensaje(e, e.getMessage());
+                disableAllButtons();
+            }
         }else{
-            this.nombreLbl.setText("");
-            this.carreraLbl.setText("");
-            this.contrasenaLbl.setText("");
-            this.imrLbl.setText("");
-            this.contratoLbl.setText("");
-            this.nivelLbl.setText("");
-            this.telefonoLbl.setText("");
-            this.usuarioLbl.setText("");
-            this.asignarBtn.setVisible(false);
-            this.eliminarBtn.setVisible(false);
-            this.compartirBtn.setVisible(false);
-            this.actualizarBtn.setVisible(false);
+            disableAllButtons();
         }
     }
 
+    private void disableAllButtons() {
+        this.nombreLbl.setText("");
+        this.carreraLbl.setText("");
+        this.contrasenaLbl.setText("");
+        this.imrLbl.setText("");
+        this.contratoLbl.setText("");
+        this.nivelLbl.setText("");
+        this.telefonoLbl.setText("");
+        this.usuarioLbl.setText("");
+        this.asignarBtn.setVisible(false);
+        this.eliminarBtn.setVisible(false);
+        this.compartirBtn.setVisible(false);
+        this.actualizarBtn.setVisible(false);
+    }
+
+    @Override
+    public void setParameter(Login value) {
+        this.login = value;
+        try {
+            Carreras.Carrera carrera = ManagerConnection.getInstance().getCarreras().getCarrera(this.login.getIdCarrera());
+            ObservableList<Usuarios.Usuario> items= FXCollections.observableList(ManagerConnection.getInstance().getUsuarios(carrera).getUsuarios());
+            this.profesoresList.setItems(items);
+            this.profesoresList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                usuarioSelected = newValue;
+                onChangeValueInfo();
+            });
+            onChangeValueInfo();
+        } catch (SQLException | ClassNotFoundException e) {
+            Mensajes.setMensaje(e, e.getMessage());
+            this.asignarBtn.setDisable(true);
+            this.eliminarBtn.setDisable(true);
+            this.compartirBtn.setDisable(true);
+            this.actualizarBtn.setDisable(true);
+            this.agregarBtn.setDisable(true);
+        }
+    }
+
+    @Override
+    public Login getParameter() {
+        return this.login;
+    }
 }

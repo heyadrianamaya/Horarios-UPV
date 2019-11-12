@@ -5,7 +5,10 @@ import com.jfoenix.controls.JFXListView;
 import com.upv.Controladores.Actualizaciones.ActualizarCarrera;
 import com.upv.Controladores.Actualizaciones.ActualizarMaestro;
 import com.upv.Controladores.Extras.CompartirMaestros;
+import com.upv.Controladores.Registros.AgregarCarrera;
 import com.upv.expeciones.Mensajes;
+import com.upv.utils.ChangeValues;
+import com.upv.utils.Parametized;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,7 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Carreras implements Initializable {
+public class Carreras implements Initializable, ChangeValues {
     private Stage prevStage;
 
     @FXML private JFXButton agregarBtn;
@@ -32,6 +35,8 @@ public class Carreras implements Initializable {
     @FXML private Label nombreCarreraLbl;
     @FXML private JFXButton eliminarBtn;
     @FXML private JFXButton actualizarBtn;
+
+    private upv.poo.datos.carreras.Carreras.Carrera carreraSelected;
 
     public void setPrevStage(Stage prevStage){
         this.prevStage = prevStage;
@@ -45,6 +50,12 @@ public class Carreras implements Initializable {
                             ManagerConnection.getInstance().getCarreras().getCarreras()
                 );
             this.carrerasList.setItems(carreraObservableList);
+            this.carrerasList.getSelectionModel().selectedItemProperty()
+                    .addListener((observable, oldValue, newValue) -> {
+                        carreraSelected = newValue;
+                        onChangeValueInfo();
+                    });
+            onChangeValueInfo();
         }catch (Exception e){
             Mensajes.setMensaje(e, e.getMessage());
         }
@@ -53,6 +64,9 @@ public class Carreras implements Initializable {
 
     public void actualizar() throws IOException {
         abrirPantalla(1);
+    }
+    public void agregar() throws IOException{
+        abrirPantalla(2);
     }
 
     private void abrirPantalla(int pantalla) throws IOException {
@@ -69,6 +83,9 @@ public class Carreras implements Initializable {
 
                 ActualizarCarrera actualizarController = getFXML.getController(); //Clase la cual
                 actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
+                if (this.carreraSelected!=null){
+                    actualizarController.setParameter(this.carreraSelected);
+                }
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -76,6 +93,35 @@ public class Carreras implements Initializable {
                 stagePantalla.initOwner(prevStage);
                 stagePantalla.show(); //Mostramos pantalla de huella
                 break;
+            case 2:
+                stagePantalla.setTitle("Agregar carrera"); //Poner su titulo
+                getFXML = new FXMLLoader(getClass().getResource("/view/agregarCarrera.fxml")); //Obtener la informacion del escenario
+                panePantalla = getFXML.load(); //En un pane poner los datos
+
+                AgregarCarrera agregarCarrera = getFXML.getController(); //Clase la cual
+                agregarCarrera.setPrevStage(prevStage); //Asiganmos escenario del otro
+
+                scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
+                stagePantalla.setScene(scenePantalla); //Asignamos escenario
+                stagePantalla.initModality(Modality.APPLICATION_MODAL);
+                stagePantalla.initOwner(prevStage);
+                stagePantalla.show(); //Mostramos pantalla de huella
+                break;
+        }
+    }
+
+    @Override
+    public void onChangeValueInfo() {
+        if (this.carreraSelected!=null){
+            this.idCarreraLbl.setText(String.valueOf(this.carreraSelected.getId()));
+            this.nombreCarreraLbl.setText(this.carreraSelected.getNombre());
+            this.actualizarBtn.setVisible(true);
+            this.eliminarBtn.setVisible(true);
+        }else{
+            this.idCarreraLbl.setText("");
+            this.nombreCarreraLbl.setText("");
+            this.actualizarBtn.setVisible(false);
+            this.eliminarBtn.setVisible(false);
         }
     }
 }

@@ -6,7 +6,9 @@ import upv.poo.datos.aulas.Equipos;
 import upv.poo.datos.carreras.Carreras;
 import upv.poo.datos.grupos.Grupos;
 import upv.poo.datos.login.Login;
+import upv.poo.datos.materias.Materias;
 import upv.poo.datos.plandeestudios.PlanesDeEstudio;
+import upv.poo.datos.usuarios.Disponibilidad;
 import upv.poo.datos.usuarios.Usuarios;
 import upv.poo.utils.TipoUsuario;
 
@@ -99,10 +101,34 @@ public class ManagerConnection {
         }
         return planesDeEstudio;
     }
+    public PlanesDeEstudio getPlanesEstudio(Usuarios.Usuario usuario) throws SQLException{
+        PreparedStatement resultSet = preparedStatement("call getPlanesWithIdCarrera(?)");
+        resultSet.setInt(1, usuario.getId_carrera());
+        ResultSet resultSet1 = resultSet.executeQuery();
+        PlanesDeEstudio planesDeEstudio = new PlanesDeEstudio();
+        while (resultSet1.next()){
+            planesDeEstudio.addPlan(resultSet1.getString(1),
+                    resultSet1.getString(2),resultSet1.getString(3),
+                    resultSet1.getInt(4));
+        }
+        return planesDeEstudio;
+    }
     //GRUPOS
     public Grupos getGrupos(PlanesDeEstudio.PlanDeEstudio planDeEstudio) throws SQLException{
         PreparedStatement pre = preparedStatement("call getGrupos(?)");
         pre.setString(1,planDeEstudio.getClave());
+        ResultSet resultSet = pre.executeQuery();
+        Grupos grupos = new Grupos();
+        while (resultSet.next()){
+            grupos.addGrupo(resultSet.getString(1),
+                    resultSet.getInt(2),
+                    resultSet.getString(3));
+        }
+        return grupos;
+    }
+    public Grupos getGrupos(Login login) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getGruposWithIdCarrera(?)");
+        pre.setInt(1,login.getIdCarrera());
         ResultSet resultSet = pre.executeQuery();
         Grupos grupos = new Grupos();
         while (resultSet.next()){
@@ -134,6 +160,42 @@ public class ManagerConnection {
                     resultSet.getInt(6));
         }
         return usuarios;
+    }
+    //MATERIAS
+    public Materias getMaterias(PlanesDeEstudio.PlanDeEstudio planDeEstudio) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getMaterias(?)");
+        pre.setString(1,planDeEstudio.getClave());
+        ResultSet resultSet = pre.executeQuery();
+        Materias materias = new Materias();
+        while (resultSet.next()){
+            materias.addMateria(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5),
+                    resultSet.getInt(6),
+                    resultSet.getString(7),
+                    resultSet.getInt(8)
+            );
+        }
+        return materias;
+    }
+    //DISPONIBILIDAD
+    public Disponibilidad getDisponibilidad(Usuarios.Usuario usuario, boolean esMatutino) throws SQLException {
+        PreparedStatement pre;
+        if (esMatutino){
+            pre  = preparedStatement("CALL getDisponibilidad(?,1)");
+        }else{
+            pre  = preparedStatement("CALL getDisponibilidad(?,2)");
+        }
+        pre.setString(1,usuario.getClave());
+        ResultSet resultSet = pre.executeQuery();
+        Disponibilidad disponibilidad = new Disponibilidad();
+        while (resultSet.next()){
+            disponibilidad.addEspacio(resultSet.getInt(1), resultSet.getInt(2));
+        }
+        return disponibilidad;
     }
     /*
         UPDATES

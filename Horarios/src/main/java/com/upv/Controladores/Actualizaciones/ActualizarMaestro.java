@@ -26,9 +26,9 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
     public JFXButton cancelarBtn;
     @FXML private JFXTextField nombreTxt;
     @FXML private JFXTextField telefonoTxt;
-    @FXML private JFXComboBox nivelCBox;
+    @FXML private JFXComboBox<String> nivelCBox;
     @FXML private JFXComboBox<Carreras.Carrera> carreraCBox;
-    @FXML private JFXComboBox contratoCBox;
+    @FXML private JFXComboBox<String> contratoCBox;
     @FXML private JFXTextField imrTxt;
     private Usuarios.Usuario usuario;
 
@@ -70,6 +70,10 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
             this.imrTxt.setText(String.valueOf(this.usuario.getIMR()));
             this.nombreTxt.setText(this.usuario.getNombre());
             this.actualizarBtn.setDisable(false);
+            this.nivelCBox.getItems().addAll("Dr.","M.C.","Lic.","No especificado");
+            this.contratoCBox.getItems().addAll("PA","PTC","No especificado");
+            this.contratoCBox.setValue(this.usuario.getContrato());
+            this.nivelCBox.setValue(this.usuario.getNivel());
             this.carreraCBox.setValue(ManagerConnection.getInstance().getCarreras().getCarrera(this.usuario.getId_carrera()));
             } catch (SQLException | ClassNotFoundException e) {
                 Mensajes.setMensaje(e, e.getMessage());

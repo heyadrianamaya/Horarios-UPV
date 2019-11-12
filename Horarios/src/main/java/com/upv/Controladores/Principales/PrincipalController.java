@@ -92,6 +92,8 @@ public class PrincipalController implements Initializable {
                 getFXML = new FXMLLoader(getClass().getResource("/view/maestros.fxml")); //Obtener la informacion del escenario
                 panelSecundario = getFXML.load();
                 Maestros maestrosController = getFXML.getController(); //Clase la cual
+                if (this.login!=null)
+                    maestrosController.setParameter(this.login);
                 maestrosController.setPrevStage(prevStage); //Asiganmos escenario del otro
                 break;
             case 4: //Carreras
@@ -114,11 +116,17 @@ public class PrincipalController implements Initializable {
                 getFXML = new FXMLLoader(getClass().getResource("/view/grupos.fxml")); //Obtener la informacion del escenario
                 panelSecundario = getFXML.load();
                 Grupos gruposController = getFXML.getController(); //Clase la cual
+                if(this.login!=null)
+                    gruposController.setParameter(this.login);
                 gruposController.setPrevStage(prevStage); //Asiganmos escenario del otro
                 break;
             case 8: //Horarios
                 getFXML = new FXMLLoader(getClass().getResource("/view/horarios.fxml")); //Obtener la informacion del escenario
                 panelSecundario = getFXML.load();
+                Horarios horariosController = getFXML.getController();
+                if (this.login!=null){
+                    horariosController.setParameter(this.login);
+                }
                 break;
             case 9:
                 getFXML = new FXMLLoader(getClass().getResource("/view/puntosDeConfianza.fxml")); //Obtener la informacion del escenario

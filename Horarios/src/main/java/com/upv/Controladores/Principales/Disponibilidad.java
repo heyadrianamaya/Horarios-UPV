@@ -19,13 +19,25 @@ import java.util.ResourceBundle;
 
 public class Disponibilidad implements Initializable, Parametized<Login> {
     @FXML private JFXComboBox<Usuarios.Usuario> profesoresCBox;
-    @FXML private JFXComboBox turnoCBox;
+    @FXML private JFXComboBox<String> turnoCBox;
     @FXML private TableView disponiblesTable;
     private Usuarios usuarios;
     private Login usuario;
+    private Usuarios.Usuario usuarioSelected;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.profesoresCBox.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    usuarioSelected = newValue;
+                    onChangeDisponibilidad();
+                });
+        this.turnoCBox.getSelectionModel().selectedItemProperty().addListener(
+                ((observableValue, oldValue, newValue) -> {
+                    onChangeDisponibilidad();
+                })
+        );
+        onChangeDisponibilidad();
     }
     public void setValuesProfesoresCBox(Carreras.Carrera c) throws SQLException, ClassNotFoundException {
         this.usuarios = ManagerConnection.getInstance().getUsuarios(c);
@@ -48,8 +60,26 @@ public class Disponibilidad implements Initializable, Parametized<Login> {
     public void onChangeValueInfo() {
         try {
             this.setValuesProfesoresCBox(ManagerConnection.getInstance().getCarreras().getCarrera(this.usuario.getIdCarrera()));
+            this.turnoCBox.getItems().addAll("Matutino","Vespertino");
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
+        }
+    }
+    private void onChangeDisponibilidad(){
+        if (this.usuarioSelected!=null){
+            try {
+                if (this.turnoCBox.getSelectionModel().getSelectedItem()!=null){
+                    if (this.turnoCBox.getSelectionModel().getSelectedItem().equals("Matutino")){
+                        System.out.println(ManagerConnection.getInstance().getDisponibilidad(usuarioSelected,true));
+                    }else if(this.turnoCBox.getSelectionModel().getSelectedItem().equals("Vespertino")){
+                        System.out.println(ManagerConnection.getInstance().getDisponibilidad(usuarioSelected,false));
+                    }
+                }
+            } catch (SQLException | ClassNotFoundException e) {
+                Mensajes.setMensaje(e, e.getMessage());
+            }
+        }else{
+            //vaciar
         }
     }
 }
