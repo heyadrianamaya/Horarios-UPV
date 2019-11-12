@@ -39,6 +39,7 @@ public class Disponibilidad implements Initializable, Parametized<Login> {
         );
         onChangeDisponibilidad();
     }
+
     public void setValuesProfesoresCBox(Carreras.Carrera c) throws SQLException, ClassNotFoundException {
         this.usuarios = ManagerConnection.getInstance().getUsuarios(c);
         ObservableList<Usuarios.Usuario> usuarios = FXCollections.observableArrayList(this.usuarios.getUsuarios());
