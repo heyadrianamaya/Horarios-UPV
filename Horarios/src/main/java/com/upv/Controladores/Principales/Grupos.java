@@ -89,7 +89,8 @@ public class Grupos implements Initializable, Parametized<Login> {
             if (this.turnoCBox.getSelectionModel().getSelectedItem()!=null){
                 try {
                     if (this.turnoCBox.getSelectionModel().getSelectedItem().equals("Matutino")){
-                        System.out.println(ManagerConnection.getInstance().getMaterias(this.grupoSelected, true));
+                        System.out.println(this.grupoSelected);
+                        //System.out.println(ManagerConnection.getInstance().getMaterias(this.grupoSelected, true));
                     }else{
                         System.out.println(ManagerConnection.getInstance().getMaterias(this.grupoSelected, false));
                     }

@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.upv.expeciones.Mensajes;
 import com.upv.utils.ChangeValues;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import upv.poo.basededatos.ManagerConnection;
 import upv.poo.datos.plandeestudios.PlanesDeEstudio;
@@ -40,7 +42,7 @@ public class Materias implements Initializable, ChangeValues {
                     });
             onChangeValueInfo();
             this.planesTable.getColumns().clear();
-            createColumns();
+            //createColumns();
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
         }
@@ -55,16 +57,24 @@ public class Materias implements Initializable, ChangeValues {
         if (this.planDeEstudioSelected!=null){
             try {
                 upv.poo.datos.materias.Materias materias = ManagerConnection.getInstance().getMaterias(this.planDeEstudioSelected);
-                data = FXCollections.observableArrayList();
-                for (int pos = 1; pos <=  materias.maxPosicion(); pos++) {
-                    ObservableList<upv.poo.datos.materias.Materias.Materia> row = FXCollections.observableArrayList();
+
+                String[][] informacion = new String[materias.maxPosicion()+1][10];
+
+                for (int pos = 0; pos <=  materias.maxPosicion(); pos++) {
                     for (int cuatri = 1; cuatri <=10; cuatri++) {
-                        row.add(materias.getMateria(cuatri,pos));
+                        if(pos == 0){
+                            informacion[pos][cuatri-1] =  "Cuatrimestre " + String.valueOf(cuatri);
+                        }else{
+                            if(materias.getMateria(cuatri,pos) != null){
+                                System.out.println("cuatri: " + cuatri + " " + materias.getMateria(cuatri,pos).getNombre());
+                                informacion[pos][cuatri-1] =  materias.getMateria(cuatri,pos).getNombre();
+                            }
+                        }
+                        //System.out.println("Nada");
                     }
-                    data.add(row);
                 }
                 //FINALLY ADDED TO TableView
-                this.planesTable.setItems(data);
+                setOnTable(informacion);
             } catch (Exception e) {
                 Mensajes.setMensaje(e, e.getMessage());
             }
@@ -72,17 +82,31 @@ public class Materias implements Initializable, ChangeValues {
 
         }
     }
-    private void createColumns(){
-        for (int i = 0; i < 10; i++) {
-            //We are using non property style for making dynamic table
-            final int j = i;
-            TableColumn col = new TableColumn("Cuatri " + (i+1));
-            col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>)
-                    param ->
-                            new SimpleStringProperty(param.getValue().get(j).toString()));
 
-            this.planesTable.getColumns().addAll(col);
-            System.out.println("Column ["+i+"] ");
+    private void setOnTable(String[][] dataSource){
+        planesTable.getColumns().clear();
+        int a = 0;
+        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
+        for (String[] row : dataSource) {
+            if(a!=0){
+                data.add(FXCollections.observableArrayList(row));
+            }
+            a++;
+        }
+        planesTable.setItems(data);
+        for (int i = 0; i < dataSource[0].length; i++) {
+            final int currentColumn = i;
+            TableColumn<ObservableList<String>, String> column = new TableColumn<>(dataSource[0][i]);
+            column.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(currentColumn)));
+            column.setEditable(true);
+            column.setCellFactory(TextFieldTableCell.forTableColumn());
+            column.setOnEditCommit(
+                    (TableColumn.CellEditEvent<ObservableList<String>, String> t) -> {
+                        t.getTableView().getItems().get(t.getTablePosition().getRow()).set(t.getTablePosition().getColumn(), t.getNewValue());
+                    }
+            );
+            planesTable.getColumns().add(column);
         }
     }
+
 }
