@@ -7,6 +7,7 @@ import upv.poo.datos.carreras.Carreras;
 import upv.poo.datos.grupos.Grupos;
 import upv.poo.datos.login.Login;
 import upv.poo.datos.materias.Materias;
+import upv.poo.datos.materias.MateriasAsignada;
 import upv.poo.datos.plandeestudios.PlanesDeEstudio;
 import upv.poo.datos.usuarios.Disponibilidad;
 import upv.poo.datos.usuarios.Usuarios;
@@ -180,6 +181,33 @@ public class ManagerConnection {
             );
         }
         return materias;
+    }
+    public MateriasAsignada getMaterias(Grupos.Grupo grupo, boolean esMatutino) throws SQLException {
+        PreparedStatement pre;
+        if (esMatutino)
+            pre = preparedStatement("call getMateriasAsignadas(?,1)");
+        else
+            pre = preparedStatement("call getMateriasAsignadas(?,0)");
+        pre.setString(1,grupo.getClave());
+        ResultSet resultSet = pre.executeQuery();
+        MateriasAsignada materiasAsignada = new MateriasAsignada();
+        while (resultSet.next()){
+            materiasAsignada.addMateriaAsignada(
+                    resultSet.getString(2),
+                    resultSet.getString(10),
+                    resultSet.getString(8),
+                    resultSet.getInt(9),
+                    resultSet.getInt(10),
+                    resultSet.getInt(11),
+                    resultSet.getString(12),
+                    resultSet.getInt(13),
+                    resultSet.getString(1),
+                    resultSet.getInt(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5)
+            );
+        }
+        return materiasAsignada;
     }
     //DISPONIBILIDAD
     public Disponibilidad getDisponibilidad(Usuarios.Usuario usuario, boolean esMatutino) throws SQLException {

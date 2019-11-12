@@ -30,7 +30,7 @@ public class Grupos implements Initializable, Parametized<Login> {
     private Stage prevStage;
 
     @FXML private TableView horarioTable;
-    @FXML private JFXComboBox turnoCBox;
+    @FXML private JFXComboBox<String> turnoCBox;
     @FXML private JFXComboBox<upv.poo.datos.grupos.Grupos.Grupo> grupoCBox;
     private Login login;
     private upv.poo.datos.grupos.Grupos.Grupo grupoSelected;
@@ -41,7 +41,11 @@ public class Grupos implements Initializable, Parametized<Login> {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.turnoCBox.getSelectionModel().selectedItemProperty().addListener(
+                ((observableValue, oldValue, newValue) -> {
+                    onChangeSelectedGrupo();
+                })
+        );
     }
 
     @Override
@@ -62,6 +66,7 @@ public class Grupos implements Initializable, Parametized<Login> {
             try {
                 grupos = observableArrayList(ManagerConnection.getInstance().getGrupos(this.login).getGrupos());
                 this.grupoCBox.setItems(grupos);
+                this.turnoCBox.getItems().addAll("Matutino","Vespertino");
             } catch (SQLException | ClassNotFoundException e) {
                 Mensajes.setMensaje(e, e.getMessage());
             }
@@ -72,13 +77,25 @@ public class Grupos implements Initializable, Parametized<Login> {
             this.grupoCBox.setDisable(true);
         }
     }
+
     private void onChangeSelectedGrupo(){
         if (this.grupoSelected!=null){
-
+            if (this.turnoCBox.getSelectionModel().getSelectedItem()!=null){
+                try {
+                    if (this.turnoCBox.getSelectionModel().getSelectedItem().equals("Matutino")){
+                        System.out.println(ManagerConnection.getInstance().getMaterias(this.grupoSelected, true));
+                    }else{
+                        System.out.println(ManagerConnection.getInstance().getMaterias(this.grupoSelected, false));
+                    }
+                } catch (SQLException | ClassNotFoundException e) {
+                    Mensajes.setMensaje(e, e.getMessage());
+                }
+            }
         }else{
 
         }
     }
+
     private void abrirPantalla(int pantalla) throws IOException {
         Stage stagePantalla = new Stage(); //Creacion de nuevo Escenario
         FXMLLoader getFXML;
