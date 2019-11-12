@@ -80,7 +80,7 @@ public class Disponibilidad implements Initializable, Parametized<Login> {
     @FXML private ToggleButton sabado7;
 
     ArrayList<ToggleButton> controladorBotones = new ArrayList<>();
-
+    private boolean turno = false;
     //Otro
     @FXML private JFXComboBox<Usuarios.Usuario> profesoresCBox;
     @FXML private JFXComboBox<String> turnoCBox;
@@ -88,7 +88,7 @@ public class Disponibilidad implements Initializable, Parametized<Login> {
     private Login usuario;
     private Usuarios.Usuario usuarioSelected;
 
-    private boolean turno = false;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
