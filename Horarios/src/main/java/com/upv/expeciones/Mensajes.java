@@ -1,6 +1,7 @@
 package com.upv.expeciones;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
@@ -8,6 +9,7 @@ import javafx.scene.layout.Priority;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Optional;
 
 public class Mensajes {
     public static void setMensaje(String titulo, String mensaje, Alert.AlertType alertType){
@@ -42,10 +44,15 @@ public class Mensajes {
         expContent.setMaxWidth(Double.MAX_VALUE);
         expContent.add(label, 0, 0);
         expContent.add(textArea, 0, 1);
-
-// Set expandable Exception into the dialog pane.
         alert.getDialogPane().setExpandableContent(expContent);
 
         alert.showAndWait();
+    }
+    public static Optional<ButtonType> setAvisoConfirmacion(String titulo, String mensaje, Alert.AlertType alertType){
+        Alert alert = new Alert(alertType);
+        alert.setTitle(titulo);
+        alert.setHeaderText(mensaje);
+        alert.setContentText("¿Estas seguro de ejecutar la operacion?");
+        return  alert.showAndWait();
     }
 }

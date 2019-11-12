@@ -11,11 +11,11 @@ public class Materias {
         private String nombre;
         private int creditos;
         private int cuatrimestre;
-        private int posicion;
+        private String posicion;
         private String tipoMateria;
         private int numHoras;
 
-        public Materia(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, int posicion, String tipoMateria, int numHoras) {
+        public Materia(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, String posicion, String tipoMateria, int numHoras) {
             this.claveMateria = claveMateria;
             this.clavePlan = clavePlan;
             this.nombre = nombre;
@@ -66,11 +66,11 @@ public class Materias {
             this.cuatrimestre = cuatrimestre;
         }
 
-        public int getPosicion() {
+        public String getPosicion() {
             return posicion;
         }
 
-        public void setPosicion(int posicion) {
+        public void setPosicion(String posicion) {
             this.posicion = posicion;
         }
 
@@ -144,7 +144,22 @@ public class Materias {
                 .add("materias=" + materias)
                 .toString();
     }
-    public void addMateria(String claveMateria, String clavePlan, String nombreMateria, int creditos, int cuatrimestre, int posicion, String tipoMateria, int numHoras){
+    public void addMateria(String claveMateria, String clavePlan, String nombreMateria, int creditos, int cuatrimestre, String posicion, String tipoMateria, int numHoras){
         this.materias.add(new Materia(claveMateria, clavePlan, nombreMateria, creditos, cuatrimestre, posicion, tipoMateria, numHoras));
+    }
+    public int maxPosicion(){
+        int posicion = 0;
+        for (Materia materia: this.materias){
+            if (posicion < Integer.parseInt(materia.getPosicion()))
+                posicion = Integer.parseInt(materia.getPosicion());
+        }
+        return posicion;
+    }
+    public Materia getMateria(int cuatri, int posicion){
+        for (Materia ma : this.materias) {
+            if (ma.getCuatrimestre() == cuatri && Integer.parseInt(ma.getPosicion()) == posicion)
+                return ma;
+        }
+        return null;
     }
 }

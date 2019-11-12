@@ -9,10 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import upv.poo.basededatos.ManagerConnection;
 import upv.poo.datos.carreras.Carreras;
 import upv.poo.datos.usuarios.Usuarios;
+import upv.poo.utils.TipoUsuario;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -44,6 +46,9 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
                     ManagerConnection.getInstance().getCarreras().getCarreras()
             );
             this.carreraCBox.setItems(carreras);
+            this.actualizarBtn.setOnAction((actionEvent)->agregar());
+            this.usuarioTxt.setDisable(true);
+            this.usuarioTxt.setEditable(false);
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
         }
@@ -74,8 +79,8 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
             this.imrTxt.setText(String.valueOf(this.usuario.getIMR()));
             this.nombreTxt.setText(this.usuario.getNombre());
             this.actualizarBtn.setDisable(false);
-            this.nivelCBox.getItems().addAll("Dr.","M.C.","Lic.","No especificado");
-            this.contratoCBox.getItems().addAll("PA","PTC","No especificado");
+            this.nivelCBox.getItems().addAll("-","Dr.","M.C","Lic.");
+            this.contratoCBox.getItems().addAll("-","PA","PTC");
             this.contratoCBox.setValue(this.usuario.getContrato());
             this.nivelCBox.setValue(this.usuario.getNivel());
             this.carreraCBox.setValue(ManagerConnection.getInstance().getCarreras().getCarrera(this.usuario.getId_carrera()));
@@ -87,11 +92,39 @@ public class ActualizarMaestro implements Initializable, Parametized<Usuarios.Us
             this.actualizarBtn.setDisable(true);
         }
     }
-
     public void salir(){
         System.out.println(prevStage);
         this.prevStage.close();
         System.out.println("Cancelar");
         //System.exit(0);
+    }
+    void agregar(){
+        if (!this.nombreTxt.getText().equals("") && !this.telefonoTxt.getText().equals("")
+                && !this.nivelCBox.getSelectionModel().getSelectedItem().equals("") &&
+                this.carreraCBox.getSelectionModel().getSelectedItem()!=null &&
+                this.contratoCBox.getSelectionModel().getSelectedItem()!=null &&
+                !this.imrTxt.getText().equals("") && !this.usuarioTxt.getText().equals("")
+                && !this.contrasenaTxt.getText().equals("")){
+            try {
+                this.usuario.setClave(this.usuarioTxt.getText());
+                this.usuario.setPassword(this.contrasenaTxt.getText());
+                this.usuario.setTipo(TipoUsuario.PROFESOR);
+                this.usuario.setId_carrera(this.carreraCBox.getSelectionModel().getSelectedItem().getId());
+                this.usuario.setNombre(this.nombreTxt.getText());
+                this.usuario.setNivel(this.nivelCBox.getSelectionModel().getSelectedItem());
+                this.usuario.setNivel(this.nivelCBox.getSelectionModel().getSelectedItem());
+                this.usuario.setContrato(this.contratoCBox.getSelectionModel().getSelectedItem());
+                this.usuario.setIMR(Integer.parseInt(this.imrTxt.getText()));
+                ManagerConnection.getInstance().updateUsuario(
+                        this.usuario
+                );
+                Mensajes.setMensaje("Actualizado correctamente","Actualizado", Alert.AlertType.INFORMATION);
+            } catch (SQLException | ClassNotFoundException e) {
+                Mensajes.setMensaje(e, e.getMessage());
+            }
+        }else{
+            Mensajes.setMensaje("Datos imcompletos","", Alert.AlertType.WARNING);
+        }
+
     }
 }

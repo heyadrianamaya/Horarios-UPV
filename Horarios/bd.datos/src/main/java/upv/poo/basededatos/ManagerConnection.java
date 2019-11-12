@@ -143,6 +143,16 @@ public class ManagerConnection {
     public Usuarios getUsuarios(Carreras.Carrera carrera) throws SQLException {
         PreparedStatement pre = preparedStatement("call getUsersProfesor(?)");
         pre.setInt(1,carrera.getId());
+        return getUsuarios(pre);
+    }
+    public Usuarios getUsuarios(Materias.Materia materia) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getProfesoresAsignados(?,?)");
+        pre.setString(1,materia.getClaveMateria());
+        pre.setString(2, materia.getClavePlan());
+        return getUsuarios(pre);
+    }
+
+    private Usuarios getUsuarios(PreparedStatement pre) throws SQLException {
         ResultSet resultSet = pre.executeQuery();
         Usuarios usuarios = new Usuarios();
         while (resultSet.next()){
@@ -162,25 +172,12 @@ public class ManagerConnection {
         }
         return usuarios;
     }
+
     //MATERIAS
     public Materias getMaterias(PlanesDeEstudio.PlanDeEstudio planDeEstudio) throws SQLException {
         PreparedStatement pre = preparedStatement("call getMaterias(?)");
         pre.setString(1,planDeEstudio.getClave());
-        ResultSet resultSet = pre.executeQuery();
-        Materias materias = new Materias();
-        while (resultSet.next()){
-            materias.addMateria(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getInt(4),
-                    resultSet.getInt(5),
-                    resultSet.getInt(6),
-                    resultSet.getString(7),
-                    resultSet.getInt(8)
-            );
-        }
-        return materias;
+        return getMaterias(pre);
     }
     public MateriasAsignada getMaterias(Grupos.Grupo grupo, boolean esMatutino) throws SQLException {
         PreparedStatement pre;
@@ -198,7 +195,7 @@ public class ManagerConnection {
                     resultSet.getString(7),
                     resultSet.getInt(8),
                     resultSet.getInt(9),
-                    resultSet.getInt(10),
+                    resultSet.getString(10),
                     resultSet.getString(12),
                     resultSet.getInt(13),
                     resultSet.getString(1),
@@ -208,6 +205,30 @@ public class ManagerConnection {
             );
         }
         return materiasAsignada;
+    }
+    public Materias getMaterias(Grupos.Grupo grupo) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getMateriasWithGrupo(?,?)");
+        pre.setString(1,grupo.getClave());
+        pre.setInt(2,grupo.getCuatrimestre());
+        return getMaterias(pre);
+    }
+    private Materias getMaterias(PreparedStatement pre) throws SQLException {
+        ResultSet resultSet = pre.executeQuery();
+        Materias materias = new Materias();
+        while (resultSet.next()){
+
+            materias.addMateria(
+                resultSet.getString(1),
+                resultSet.getString(6),
+                resultSet.getString(2),
+                resultSet.getInt(3),
+                resultSet.getInt(4),
+                resultSet.getString(5),
+                resultSet.getString(7),
+                resultSet.getInt(8)
+            );
+        }
+        return materias;
     }
     //DISPONIBILIDAD
     public Disponibilidad getDisponibilidad(Usuarios.Usuario usuario, boolean esMatutino) throws SQLException {
@@ -332,7 +353,7 @@ public class ManagerConnection {
     }
     //CARRERAS
     public void insertCarrera(int id, String nombre) throws SQLException{
-        PreparedStatement preparedStatement = preparedStatement("call addCarrera(?,?,?,?)");
+        PreparedStatement preparedStatement = preparedStatement("call addCarrera(?,?)");
         preparedStatement.setInt(1,id);
         preparedStatement.setString(2,nombre);
         int rowAffected = preparedStatement.executeUpdate();
@@ -383,13 +404,44 @@ public class ManagerConnection {
         DELETE
      */
     public void deleteUsuario(String clave) throws SQLException {
-        PreparedStatement preparedStatement = preparedStatement("deleteUserProfesor(?)");
+        PreparedStatement preparedStatement = preparedStatement(" call deleteUserProfesor(?)");
         preparedStatement.setString(1,clave);
+        preparedStatement.execute();
+    }
+    public void deleteCarrera(int idCarrera) throws SQLException {
+        PreparedStatement preparedStatement = preparedStatement(" call deleteCarrera(?)");
+        preparedStatement.setInt(1,idCarrera);
         preparedStatement.execute();
     }
     /*
         OTRAS FUNCIONES
      */
+    public int[] getHorasSemanalesMaximas(Usuarios.Usuario usuario) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getHorasSemanalesMaximas(?)");
+        pre.setString(1,usuario.getClave());
+        return getIntsDias(pre);
+    }
+
+    private int[] getIntsDias(PreparedStatement pre) throws SQLException {
+        int[] horas = new int[5];
+        ResultSet resultSet = pre.executeQuery();
+        if (resultSet.next()){
+            horas[0] = resultSet.getInt(1);
+            horas[1] = resultSet.getInt(2);
+            horas[2] = resultSet.getInt(3);
+            horas[3] = resultSet.getInt(4);
+            horas[4] = resultSet.getInt(5);
+        }
+        return horas;
+    }
+
+    public int[] getHorasSemanalesTomadas(Materias.Materia materia, Usuarios.Usuario usuario) throws SQLException {
+        PreparedStatement pre = preparedStatement("call getHorasSemanalesTomadas(?,?)");
+        pre.setString(1,materia.getClaveMateria());
+        pre.setString(2, usuario.getNombre());
+        return getIntsDias(pre);
+    }
+
     private void insertIntStringStringString(String str, String str2, String str3, int int1, PreparedStatement pre) throws SQLException {
         pre.setString(1,str);
         pre.setString(2,str2);

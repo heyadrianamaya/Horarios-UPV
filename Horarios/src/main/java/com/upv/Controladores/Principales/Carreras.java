@@ -15,6 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
@@ -24,6 +26,7 @@ import upv.poo.basededatos.ManagerConnection;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Carreras implements Initializable, ChangeValues {
@@ -56,6 +59,7 @@ public class Carreras implements Initializable, ChangeValues {
                         onChangeValueInfo();
                     });
             onChangeValueInfo();
+            this.eliminarBtn.setOnAction((e)->eliminar());
         }catch (Exception e){
             Mensajes.setMensaje(e, e.getMessage());
         }
@@ -67,6 +71,16 @@ public class Carreras implements Initializable, ChangeValues {
     }
     public void agregar() throws IOException{
         abrirPantalla(2);
+    }
+    public void eliminar(){
+        if (Mensajes.setAvisoConfirmacion("Eliminar carrera",
+                this.carreraSelected.toString(), Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+            try {
+                ManagerConnection.getInstance().deleteCarrera(this.carreraSelected.getId());
+            } catch (SQLException | ClassNotFoundException e) {
+                Mensajes.setMensaje(e, e.getMessage());
+            }
+        }
     }
 
     private void abrirPantalla(int pantalla) throws IOException {
