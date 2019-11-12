@@ -194,11 +194,11 @@ public class ManagerConnection {
         while (resultSet.next()){
             materiasAsignada.addMateriaAsignada(
                     resultSet.getString(2),
-                    resultSet.getString(10),
-                    resultSet.getString(8),
+                    resultSet.getString(11),
+                    resultSet.getString(7),
+                    resultSet.getInt(8),
                     resultSet.getInt(9),
                     resultSet.getInt(10),
-                    resultSet.getInt(11),
                     resultSet.getString(12),
                     resultSet.getInt(13),
                     resultSet.getString(1),

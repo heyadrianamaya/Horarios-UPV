@@ -41,6 +41,12 @@ public class Grupos implements Initializable, Parametized<Login> {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.grupoCBox.getSelectionModel().selectedItemProperty().addListener(
+                ((observableValue, oldValue, newValue) -> {
+                    grupoSelected = newValue;
+                    onChangeSelectedGrupo();
+                })
+        );
         this.turnoCBox.getSelectionModel().selectedItemProperty().addListener(
                 ((observableValue, oldValue, newValue) -> {
                     onChangeSelectedGrupo();
