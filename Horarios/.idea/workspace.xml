@@ -38,13 +38,13 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\adria\IdeaProjects\Horarios\src\main" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\adria\OneDrive\Documentos\GitHub\Horarios-UPV\Horarios\target\classes" />
       <recent name="C:\Users\adria\IdeaProjects\Horarios\target\classes" />
       <recent name="C:\Users\adria\IdeaProjects\Horarios\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adria\IdeaProjects\Horarios\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -94,7 +94,9 @@
       <workItem from="1573518364884" duration="275000" />
       <workItem from="1573546176963" duration="13691000" />
       <workItem from="1573563386570" duration="1525000" />
-      <workItem from="1573568479686" duration="5621000" />
+      <workItem from="1573568479686" duration="6176000" />
+      <workItem from="1573575865481" duration="3000" />
+      <workItem from="1573575879796" duration="2397000" />
     </task>
     <servers />
   </component>
@@ -106,7 +108,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
