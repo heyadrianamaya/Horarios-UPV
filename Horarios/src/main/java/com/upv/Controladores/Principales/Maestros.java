@@ -17,6 +17,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
@@ -87,7 +89,15 @@ public class Maestros implements Initializable, Parametized<Login> {
         abrirPantalla(4);
     }
     public void eliminar(){
-
+        if (Mensajes.setAvisoConfirmacion("Eliminar profesor",
+                this.usuarioSelected.toString(), Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+            try {
+                ManagerConnection.getInstance().deleteUsuario(this.usuarioSelected.getClave());
+                setParameter(this.login);
+            } catch (SQLException | ClassNotFoundException e) {
+                Mensajes.setMensaje(e, e.getMessage());
+            }
+        }
     }
 
     private void abrirPantalla(int pantalla) throws IOException {
@@ -119,6 +129,8 @@ public class Maestros implements Initializable, Parametized<Login> {
 
                 CompartirMaestros compartirMaestros = getFXML.getController(); //Clase la cual
                 compartirMaestros.setPrevStage(prevStage); //Asiganmos escenario del otro
+                if(this.usuarioSelected!=null)
+                    compartirMaestros.setParameter(this.usuarioSelected);
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario

@@ -118,7 +118,14 @@ public class Usuarios {
         public String toString() {
             return new StringJoiner(", ", Usuario.class.getSimpleName() + "[", "]")
                     .add("clave='" + clave + "'")
+                    .add("password='" + password + "'")
                     .add("tipo=" + tipo)
+                    .add("id_carrera=" + id_carrera)
+                    .add("nombre='" + nombre + "'")
+                    .add("nivel='" + nivel + "'")
+                    .add("contrato='" + contrato + "'")
+                    .add("telefono='" + telefono + "'")
+                    .add("IMR=" + IMR)
                     .toString();
         }
 

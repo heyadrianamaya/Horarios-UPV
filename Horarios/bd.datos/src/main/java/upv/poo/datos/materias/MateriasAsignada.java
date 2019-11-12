@@ -11,7 +11,7 @@ public class MateriasAsignada{
         private int hora;
         private String nombreProfesor;
 
-        public MateriaAsignada(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, int posicion, String tipoMateria, int numHoras, String claveGrupo,  int dia, int hora, String nombreProfesor) {
+            public MateriaAsignada(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, String posicion, String tipoMateria, int numHoras, String claveGrupo,  int dia, int hora, String nombreProfesor) {
             super(claveMateria, clavePlan, nombre, creditos, cuatrimestre, posicion, tipoMateria, numHoras);
             this.claveGrupo = claveGrupo;
             this.dia = dia;
@@ -93,7 +93,7 @@ public class MateriasAsignada{
         this.materiaAsignadas = materiaAsignadas;
     }
 
-    public void addMateriaAsignada(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, int posicion, String tipoMateria, int numHoras, String claveGrupo,  int dia, int hora, String nombreProfesor){
+    public void addMateriaAsignada(String claveMateria, String clavePlan, String nombre, int creditos, int cuatrimestre, String posicion, String tipoMateria, int numHoras, String claveGrupo,  int dia, int hora, String nombreProfesor){
         this.materiaAsignadas.add(new MateriaAsignada(claveMateria, clavePlan, nombre, creditos, cuatrimestre, posicion, tipoMateria, numHoras, claveGrupo, dia, hora, nombreProfesor));
     }
 
