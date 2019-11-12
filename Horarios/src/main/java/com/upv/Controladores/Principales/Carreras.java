@@ -96,7 +96,7 @@ public class Carreras implements Initializable, ChangeValues {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 ActualizarCarrera actualizarController = getFXML.getController(); //Clase la cual
-                actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
+                actualizarController.setPrevStage(stagePantalla); //Asiganmos escenario del otro
                 if (this.carreraSelected!=null){
                     actualizarController.setParameter(this.carreraSelected);
                 }
@@ -113,7 +113,7 @@ public class Carreras implements Initializable, ChangeValues {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarCarrera agregarCarrera = getFXML.getController(); //Clase la cual
-                agregarCarrera.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarCarrera.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario

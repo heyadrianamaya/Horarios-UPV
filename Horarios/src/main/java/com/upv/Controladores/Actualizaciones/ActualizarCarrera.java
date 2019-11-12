@@ -54,6 +54,9 @@ public class ActualizarCarrera implements Initializable, Parametized<Carreras.Ca
             this.registrarBtn.setDisable(true);
         }
     }
+    public void salir(){
+        this.prevStage.close();
+    }
     void agregar(){
 //        System.out.println(this.nombreTxtF.getText());
         if (!this.nombreTxtF.getText().equals("")){

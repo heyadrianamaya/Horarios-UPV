@@ -12,7 +12,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ActualizarPlanDeEstudio implements Initializable, Parametized<PlanesDeEstudio.PlanDeEstudio> {
-    public JFXButton cancelarBtn;
     public JFXButton actualizarBtn;
     private Stage prevStage;
     @FXML private JFXTextField claveTxtF;
@@ -62,5 +61,9 @@ public class ActualizarPlanDeEstudio implements Initializable, Parametized<Plane
 
     public Stage getPrevStage() {
         return prevStage;
+    }
+
+    public void salir(){
+        this.prevStage.close();
     }
 }

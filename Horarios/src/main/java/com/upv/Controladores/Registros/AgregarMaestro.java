@@ -91,4 +91,8 @@ public class AgregarMaestro implements Initializable {
         }
     }
 
+    public void salir(){
+        this.prevStage.close();
+    }
+
 }

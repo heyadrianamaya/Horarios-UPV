@@ -50,4 +50,8 @@ public class ActualizarAula implements Initializable , Parametized<Aulas.Aula> {
             this.tipoCBox.getSelectionModel().select(1);
         }
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

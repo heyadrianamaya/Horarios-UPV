@@ -18,7 +18,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="215.0" layoutY="514.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="215.0" onAction="#agregar"/>
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="227.0" layoutY="516.0" onAction="#agregar" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="227.0" />
       <JFXListView fx:id="carrerasList" layoutX="40.0" layoutY="98.0" prefHeight="410.0" prefWidth="250.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="98.0" />
       <AnchorPane layoutX="298.0" layoutY="98.0" prefHeight="104.0" prefWidth="475.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="98.0">
          <children>

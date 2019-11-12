@@ -109,7 +109,7 @@ public class Aulas implements Initializable{
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 ActualizarAula actualizarController = getFXML.getController(); //Clase la cual
-                actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
+                actualizarController.setPrevStage(stagePantalla); //Asiganmos escenario del otro
                 if (this.aula!=null){
                     actualizarController.setParameter(aula);
                 }
@@ -126,7 +126,7 @@ public class Aulas implements Initializable{
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AsignacionEquipo asignacionEquipo = getFXML.getController(); //Clase la cual
-                asignacionEquipo.setPrevStage(prevStage); //Asiganmos escenario del otro
+                asignacionEquipo.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -140,7 +140,7 @@ public class Aulas implements Initializable{
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarCategoria agregarCategoria = getFXML.getController(); //Clase la cual
-                agregarCategoria.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarCategoria.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -154,7 +154,7 @@ public class Aulas implements Initializable{
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarEquipo agregarEquipo = getFXML.getController(); //Clase la cual
-                agregarEquipo.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarEquipo.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -168,7 +168,7 @@ public class Aulas implements Initializable{
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarAula agregarAula = getFXML.getController(); //Clase la cual
-                agregarAula.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarAula.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario

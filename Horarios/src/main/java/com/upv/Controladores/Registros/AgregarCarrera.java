@@ -46,4 +46,8 @@ public class AgregarCarrera implements Initializable {
             Mensajes.setMensaje("Datos imcompletos","", Alert.AlertType.WARNING);
         }
     }
+
+    public void salir(){
+        this.prevStage.close();
+    }
 }

@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -103,7 +104,7 @@ public class Maestros implements Initializable, Parametized<Login> {
     private void abrirPantalla(int pantalla) throws IOException {
         Stage stagePantalla = new Stage(); //Creacion de nuevo Escenario
         FXMLLoader getFXML;
-        Pane panePantalla; //En un pane poner los datos
+        Parent panePantalla; //En un pane poner los datos
         Scene scenePantalla;
 
         switch(pantalla){
@@ -111,8 +112,8 @@ public class Maestros implements Initializable, Parametized<Login> {
                 stagePantalla.setTitle("Actualizar Maestro"); //Poner su titulo
                 getFXML = new FXMLLoader(getClass().getResource("/view/actualizarMaestro.fxml")); //Obtener la informacion del escenario
                 panePantalla = getFXML.load(); //En un pane poner los datos
-                ActualizarMaestro actualizarController = getFXML.getController(); //Clase la cual
-                actualizarController.setPrevStage(prevStage); //Asiganmos escenario del otro
+                ActualizarMaestro actualizarController = (ActualizarMaestro) getFXML.getController(); //Clase la cual
+                actualizarController.setPrevStage(stagePantalla); //Asiganmos escenario del otro
                 if(this.usuarioSelected!=null){
                     actualizarController.setParameter(this.usuarioSelected);
                 }
@@ -128,10 +129,10 @@ public class Maestros implements Initializable, Parametized<Login> {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 CompartirMaestros compartirMaestros = getFXML.getController(); //Clase la cual
+                compartirMaestros.setPrevStage(stagePantalla); //Asiganmos escenario del otro
                 compartirMaestros.setPrevStage(prevStage); //Asiganmos escenario del otro
                 if(this.usuarioSelected!=null)
                     compartirMaestros.setParameter(this.usuarioSelected);
-
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
                 stagePantalla.initModality(Modality.APPLICATION_MODAL);
@@ -144,7 +145,7 @@ public class Maestros implements Initializable, Parametized<Login> {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AsignarCapacitacion asignarCapacitacion = getFXML.getController(); //Clase la cual
-                asignarCapacitacion.setPrevStage(prevStage); //Asiganmos escenario del otro
+                asignarCapacitacion.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -158,7 +159,7 @@ public class Maestros implements Initializable, Parametized<Login> {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarMaestro agregarMaestro = getFXML.getController(); //Clase la cual
-                agregarMaestro.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarMaestro.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario

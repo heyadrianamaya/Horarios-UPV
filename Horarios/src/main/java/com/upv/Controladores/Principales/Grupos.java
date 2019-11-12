@@ -115,7 +115,7 @@ public class Grupos implements Initializable, Parametized<Login> {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarGrupo agregarGrupo = getFXML.getController(); //Clase la cual
-                agregarGrupo.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarGrupo.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario

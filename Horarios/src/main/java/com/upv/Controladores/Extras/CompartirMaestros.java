@@ -30,6 +30,9 @@ public class CompartirMaestros implements Initializable, Parametized<Usuarios.Us
 
     }
 
+    public void salir(){
+        this.prevStage.close();
+}
     @Override
     public void setParameter(Usuarios.Usuario value) {
         this.usuarioSelected = value;

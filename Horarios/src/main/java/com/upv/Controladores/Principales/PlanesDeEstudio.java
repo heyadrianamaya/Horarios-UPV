@@ -76,7 +76,7 @@ public class PlanesDeEstudio implements Initializable, ChangeValues {
                 ActualizarPlanDeEstudio actualizarPlanDeEstudio = getFXML.getController(); //Clase la cual
                 if (this.planDeEstudioSelected!=null)
                     actualizarPlanDeEstudio.setParameter(this.planDeEstudioSelected);
-                actualizarPlanDeEstudio.setPrevStage(prevStage); //Asiganmos escenario del otro
+                actualizarPlanDeEstudio.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
@@ -90,7 +90,7 @@ public class PlanesDeEstudio implements Initializable, ChangeValues {
                 panePantalla = getFXML.load(); //En un pane poner los datos
 
                 AgregarPlanDeEstudio agregarPlanDeEstudio = getFXML.getController(); //Clase la cual
-                agregarPlanDeEstudio.setPrevStage(prevStage); //Asiganmos escenario del otro
+                agregarPlanDeEstudio.setPrevStage(stagePantalla); //Asiganmos escenario del otro
 
                 scenePantalla = new Scene(panePantalla); //Asiganar el panel a escena
                 stagePantalla.setScene(scenePantalla); //Asignamos escenario
