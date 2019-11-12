@@ -1,9 +1,11 @@
 package com.upv.Controladores.Principales;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -191,5 +193,23 @@ public class PrincipalController implements Initializable {
         this.planesBtn.setDisable(true);
         this.inglesBtn.setDisable(true);
         this.PuntosBtn.setDisable(true);
+    }
+
+    public void cerrarSesion() throws IOException {
+        Stage newStage = new Stage();
+        newStage.setTitle("Inicio de Sesión"); //Titulo pantalla inicial
+        FXMLLoader obtenerSesion = new FXMLLoader(getClass().getResource("/view/iniciarSesion.fxml")); //Obtener datos de pantalla
+
+        Pane paneSesion = obtenerSesion.load(); //Obtenemos los datos
+        InicioSesionController claseLogin = obtenerSesion.getController();
+
+        claseLogin.setPrevStage(newStage);
+
+        Scene escenaSesion = new Scene(paneSesion);
+        newStage.setResizable(false); //Mover el tamaño
+        newStage.setScene(escenaSesion); //Subimos la escena
+        prevStage.close();
+        newStage.show(); //Mostramos la pantalla
+        prevStage.close();
     }
 }

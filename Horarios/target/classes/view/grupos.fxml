@@ -3,9 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="817.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Principales.Grupos">
@@ -20,17 +22,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="40.0" layoutY="143.0" prefHeight="363.0" prefWidth="737.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="143.0">
-         <children>
-            <Label layoutX="3.0" layoutY="22.0" style="-fx-background-color: #ffffff;" text=" Horario del grupo " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-12.0" />
-            <TableView fx:id="horarioTable" layoutX="23.0" layoutY="14.0" prefHeight="319.0" prefWidth="689.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
       <JFXButton fx:id="eliminarBtn" buttonType="RAISED" layoutX="661.0" layoutY="518.0" prefHeight="28.0" prefWidth="116.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Exportar PDF" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="40.0" />
       <JFXComboBox fx:id="grupoCBox" layoutX="40.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" AnchorPane.leftAnchor="40.0" />
       <Label layoutX="268.0" layoutY="86.0" text="Turno:" AnchorPane.topAnchor="75.0">
@@ -39,6 +30,261 @@
          </font>
       </Label>
       <JFXComboBox fx:id="turnoCBox" layoutX="268.0" layoutY="95.0" prefHeight="26.0" prefWidth="205.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
-      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="687.0" layoutY="95.0" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="40.0" onAction="#agregar"/>
+      <JFXButton fx:id="agregarBtn" buttonType="RAISED" layoutX="687.0" layoutY="95.0" onAction="#agregar" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Agregar" AnchorPane.rightAnchor="40.0" />
+      <AnchorPane layoutX="40.0" layoutY="140.0" prefHeight="363.0" prefWidth="724.0" style="-fx-border-color: #4169aa; -fx-border-width: 2.5;" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <Label layoutX="68.0" layoutY="32.0" style="-fx-background-color: #ffffff;" text=" Horas disponibles " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="-14.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <GridPane gridLinesVisible="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="martes1" layoutX="12.0" layoutY="21.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="miercoles1" layoutX="-6.0" layoutY="21.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="jueves1" layoutX="-22.0" layoutY="18.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="viernes1" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="lunes2" layoutX="11.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="martes2" layoutX="1.0" layoutY="4.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="miercoles2" layoutX="-7.0" layoutY="25.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="jueves2" layoutX="-2.0" layoutY="30.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="viernes2" layoutX="2.0" layoutY="16.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="lunes3" layoutX="26.0" layoutY="-2.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="martes3" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="miercoles3" layoutX="8.0" layoutY="2.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="jueves3" layoutY="3.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="viernes3" layoutX="11.0" layoutY="-3.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="lunes4" layoutX="18.0" layoutY="-8.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="lunes5" layoutX="31.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="martes4" layoutX="15.0" layoutY="10.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="martes5" layoutX="8.0" layoutY="-1.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="miercoles5" layoutX="22.0" layoutY="6.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="jueves5" layoutX="-21.0" layoutY="-22.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="viernes5" layoutX="-6.0" layoutY="3.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="miercoles4" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="jueves4" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="viernes4" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="sabado1" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                     <children>
+                        <ToggleButton fx:id="sabado2" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                     <children>
+                        <ToggleButton fx:id="sabado3" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                     <children>
+                        <ToggleButton fx:id="sabado4" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                     <children>
+                        <ToggleButton fx:id="sabado5" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="hora1" text="07:00 - 07:54" GridPane.rowIndex="1" />
+                  <Label fx:id="hora2" text="Label" GridPane.rowIndex="2" />
+                  <Label fx:id="hora3" text="Label" GridPane.rowIndex="3" />
+                  <Label fx:id="hora4" text="Label" GridPane.rowIndex="4" />
+                  <Label fx:id="hora5" text="Label" GridPane.rowIndex="5" />
+                  <Label fx:id="hora6" text="Label" GridPane.rowIndex="6" />
+                  <Label fx:id="hora7" text="Label" GridPane.rowIndex="7" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="lunes6" layoutX="31.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="lunes7" layoutX="31.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="martes6" layoutX="8.0" layoutY="-1.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="martes7" layoutX="8.0" layoutY="-1.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="miercoles6" layoutX="22.0" layoutY="6.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="miercoles7" layoutX="22.0" layoutY="6.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="jueves6" layoutX="-21.0" layoutY="-22.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="jueves7" layoutX="-21.0" layoutY="-22.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="viernes6" layoutX="-6.0" layoutY="3.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="viernes7" layoutX="-6.0" layoutY="3.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                     <children>
+                        <ToggleButton fx:id="sabado6" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                     <children>
+                        <ToggleButton fx:id="sabado7" layoutX="4.0" layoutY="24.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <Label text="Lunes" GridPane.columnIndex="1" />
+                  <Label text="Martes" GridPane.columnIndex="2" />
+                  <Label text="Miercoles" GridPane.columnIndex="3" />
+                  <Label text="Jueves" GridPane.columnIndex="4" />
+                  <Label text="Viernes" GridPane.columnIndex="5" />
+                  <Label text="Sábado" GridPane.columnIndex="6" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ToggleButton fx:id="lunes1" layoutX="11.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="78.0" prefWidth="106.0" text="ToggleButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

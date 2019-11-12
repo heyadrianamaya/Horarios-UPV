@@ -82,7 +82,7 @@ public class InicioSesionController implements Initializable {
 
         PrincipalController principalController = getBusqueda.getController(); //Clase la cual
 
-        principalController.setPrevStage(prevStage); //Asiganmos escenario del otro
+        principalController.setPrevStage(stageBusqueda); //Asiganmos escenario del otro
         principalController.setLogin(this.login);
 
         Scene escenaBusqueda = new Scene(paneBusqueda); //Asiganar el panel a escena
