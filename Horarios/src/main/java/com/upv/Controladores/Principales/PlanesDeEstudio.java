@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -50,6 +52,7 @@ public class PlanesDeEstudio implements Initializable, ChangeValues {
                         onChangeValueInfo();
                     });
             onChangeValueInfo();
+            this.eliminarBtn.setOnAction((event)->eliminar());
         } catch (SQLException | ClassNotFoundException e) {
             Mensajes.setMensaje(e, e.getMessage());
         }
@@ -138,6 +141,18 @@ public class PlanesDeEstudio implements Initializable, ChangeValues {
             this.claveLbl.setText("");
             this.actualizarBtn.setVisible(false);
             this.eliminarBtn.setVisible(false);
+        }
+    }
+    private void eliminar(){
+        if (this.planDeEstudioSelected!=null){
+            if (Mensajes.setAvisoConfirmacion("Eliminar plan de estudio",
+                    this.planDeEstudioSelected.toString(), Alert.AlertType.CONFIRMATION).get() == ButtonType.OK){
+                try {
+                    ManagerConnection.getInstance().deletePlan(this.planDeEstudioSelected.getClave());
+                } catch (SQLException | ClassNotFoundException e) {
+                    Mensajes.setMensaje(e, e.getMessage());
+                }
+            }
         }
     }
 }

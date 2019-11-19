@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.upv.Controladores.Actualizaciones.ActualizarPlanDeEstudio">
    <children>
       <Label layoutX="47.0" layoutY="25.0" text="Actualizar plan de estudio" AnchorPane.leftAnchor="40.0">
@@ -35,11 +36,12 @@
                   <Font size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="carreraTxtF" layoutX="152.0" layoutY="117.0" prefHeight="25.0" prefWidth="335.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="148.0" AnchorPane.topAnchor="107.0">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </JFXTextField>
+<!--            <JFXTextField fx:id="carreraTxtF" layoutX="152.0" layoutY="117.0" prefHeight="25.0" prefWidth="335.0" style="-fx-border-color: #4169aa;" unFocusColor="WHITE" AnchorPane.leftAnchor="148.0" AnchorPane.topAnchor="107.0">-->
+<!--               <font>-->
+<!--                  <Font size="12.0" />-->
+<!--               </font>-->
+<!--            </JFXTextField>-->
+            <JFXComboBox fx:id="carreraComboBox" layoutX="152.0" layoutY="117.0" prefHeight="28.0" prefWidth="335.0" style="-fx-border-color: #4059a9;" unFocusColor="WHITE" />
          </children>
       </AnchorPane>
       <JFXButton fx:id="cancelarBtn" buttonType="RAISED" layoutX="40.0" layoutY="244.0" onAction="#salir" prefWidth="90.0" style="-fx-border-color: #4169aa; -fx-border-width: 1.5; -fx-background-color: #ffffff;" text="Cancelar" />

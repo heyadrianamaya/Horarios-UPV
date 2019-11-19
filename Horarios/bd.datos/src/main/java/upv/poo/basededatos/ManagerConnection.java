@@ -413,6 +413,11 @@ public class ManagerConnection {
         preparedStatement.setInt(1,idCarrera);
         preparedStatement.execute();
     }
+    public void deletePlan(String clave) throws SQLException {
+        PreparedStatement preparedStatement = preparedStatement(" call deletePlanEstudio(?)");
+        preparedStatement.setString(1,clave);
+        preparedStatement.execute();
+    }
     /*
         OTRAS FUNCIONES
      */
@@ -452,4 +457,6 @@ public class ManagerConnection {
             throw new NotExecuteQuerySQLException("No INSERT data", pre.toString());
         }
     }
+
+
 }
